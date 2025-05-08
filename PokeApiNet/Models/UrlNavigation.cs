@@ -1,4 +1,4 @@
-﻿namespace PokeApiNet
+﻿namespace PokeApiNetAfterDark.Models
 {
     /// <summary>
     /// Allows for automatic fetching of a resource via a url

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokeApiNet
+namespace PokeApiNetAfterDark.Models
 {
     /// <summary>
     /// Moves are the skills of Pokémon in battle. In battle, a Pokémon

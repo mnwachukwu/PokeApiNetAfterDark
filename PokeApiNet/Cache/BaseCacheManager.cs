@@ -2,8 +2,9 @@
 using System.Collections.Immutable;
 using System.Linq;
 using System.Reflection;
+using PokeApiNetAfterDark.Models;
 
-namespace PokeApiNet.Cache
+namespace PokeApiNetAfterDark.Cache
 {
     /// <summary>
     /// Base class for a cache manager implementation.

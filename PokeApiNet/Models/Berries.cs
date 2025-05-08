@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokeApiNet
+namespace PokeApiNetAfterDark.Models
 {
     /// <summary>
     /// Berries are small fruits that can provide HP and status condition restoration,

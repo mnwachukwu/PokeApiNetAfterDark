@@ -3,7 +3,7 @@ using Microsoft.Extensions.Primitives;
 using System.Threading;
 using System;
 
-namespace PokeApiNet.Cache
+namespace PokeApiNetAfterDark.Cache
 {
     internal abstract class BaseExpirableCache : IDisposable
     {

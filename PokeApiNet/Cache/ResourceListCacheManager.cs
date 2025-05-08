@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Immutable;
+using PokeApiNetAfterDark.Models;
 
-namespace PokeApiNet.Cache
+namespace PokeApiNetAfterDark.Cache
 {
     /// <summary>
     /// Manages caches for instances of subclasses from <see cref="ResourceList{T}"/>

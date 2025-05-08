@@ -1,4 +1,4 @@
-﻿namespace PokeApiNet
+﻿namespace PokeApiNetAfterDark.Models
 {
     /// <summary>
     /// Machines are the representation of items that teach moves

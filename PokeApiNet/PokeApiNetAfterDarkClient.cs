@@ -1,5 +1,4 @@
-﻿using PokeApiNet.Cache;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,16 +9,18 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using PokeApiNetAfterDark.Cache;
+using PokeApiNetAfterDark.Models;
 
-namespace PokeApiNet
+namespace PokeApiNetAfterDark
 {
     /// <summary>
     /// Gets data from the PokeAPI service
     /// </summary>
-    public class PokeApiClient : IDisposable
+    public class PokeApiNetAfterDarkClient : IDisposable
     {
         /// <summary>
-        /// The default `User-Agent` header value used by instances of <see cref="PokeApiClient"/>.
+        /// The default `User-Agent` header value used by instances of <see cref="PokeApiNetAfterDarkClient"/>.
         /// </summary>
         public static readonly ProductHeaderValue DefaultUserAgent = GetDefaultUserAgent();
         private readonly HttpClient _client;
@@ -30,14 +31,14 @@ namespace PokeApiNet
         /// <summary>
         /// Default constructor
         /// </summary>
-        public PokeApiClient() : this(DefaultUserAgent) {}
+        public PokeApiNetAfterDarkClient() : this(DefaultUserAgent) {}
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PokeApiClient"/> with 
+        /// Initializes a new instance of the <see cref="PokeApiNetAfterDarkClient"/> with 
         /// a given value for the `User-Agent` header
         /// </summary>
         /// <param name="userAgent">The value for the default `User-Agent` header.</param>
-        public PokeApiClient(ProductHeaderValue userAgent)
+        public PokeApiNetAfterDarkClient(ProductHeaderValue userAgent)
         {
             if (userAgent == null)
             {
@@ -52,7 +53,7 @@ namespace PokeApiNet
         /// Constructor with message handler
         /// </summary>
         /// <param name="messageHandler">Message handler implementation</param>
-        public PokeApiClient(HttpMessageHandler messageHandler)
+        public PokeApiNetAfterDarkClient(HttpMessageHandler messageHandler)
             : this(messageHandler, DefaultUserAgent)
         {  }
 
@@ -61,7 +62,7 @@ namespace PokeApiNet
         /// </summary>
         /// <param name="messageHandler">Message handler implementation</param>
         /// <param name="userAgent">The value for the default `User-Agent` header.</param>
-        public PokeApiClient(HttpMessageHandler messageHandler, ProductHeaderValue userAgent)
+        public PokeApiNetAfterDarkClient(HttpMessageHandler messageHandler, ProductHeaderValue userAgent)
         {
             if (userAgent == null)
             {
@@ -78,7 +79,7 @@ namespace PokeApiNet
         /// See https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
         /// </summary>
         /// <param name="httpClient">HttpClient implementation</param>
-        public PokeApiClient(HttpClient httpClient)
+        public PokeApiNetAfterDarkClient(HttpClient httpClient)
         {
             _client = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _client.BaseAddress = _baseUri;
@@ -96,7 +97,7 @@ namespace PokeApiNet
 
         private static ProductHeaderValue GetDefaultUserAgent()
         {
-            var version = typeof(PokeApiClient).Assembly.GetName().Version;
+            var version = typeof(PokeApiNetAfterDarkClient).Assembly.GetName().Version;
             return new ProductHeaderValue("PokeApiNet", $"{version.Major}.{version.Minor}");
         }
 
@@ -524,7 +525,7 @@ namespace PokeApiNet
         private static bool IsApiEndpointCaseSensitive<T>()
         {
             PropertyInfo propertyInfo = typeof(T).GetProperty("IsApiEndpointCaseSensitive", BindingFlags.Static | BindingFlags.NonPublic);
-            return propertyInfo == null ? false : (bool)propertyInfo.GetValue(null);
+            return propertyInfo != null && (bool)propertyInfo.GetValue(null);
         }
     }
 }

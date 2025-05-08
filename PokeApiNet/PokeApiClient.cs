@@ -1,6 +1,7 @@
 ﻿using PokeApiNet.Cache;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -460,13 +461,30 @@ namespace PokeApiNet
         /// <summary>
         /// Handles all outbound API requests to the PokeAPI server and deserializes the response
         /// </summary>
-        private async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken)
+        private static async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken)
         {
-            using var request = new HttpRequestMessage(HttpMethod.Get, url);
-            using var response = await _client.SendAsync(request, HttpCompletionOption.ResponseContentRead, cancellationToken);
+            return await Task.Run(() =>
+            {
+                const int maxAttempts = 10;
+                const int delayMs = 50;
 
-            response.EnsureSuccessStatusCode();
-            return DeserializeStream<T>(await response.Content.ReadAsStreamAsync());
+                for (var attempt = 0; attempt < maxAttempts; attempt++)
+                {
+                    try
+                    {
+                        var data = File.ReadAllText($"PokeAPI-Data\\{url}\\index.json");
+                        return JsonSerializer.Deserialize<T>(data,
+                            new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower });
+                    }
+                    catch (IOException)
+                    {
+                        Thread.Sleep(delayMs); // back off and try again
+                    }
+                }
+
+                //Console.WriteLine($"Failed to load PokeAPI data after {maxAttempts} attempts: {filePath}");
+                return default;
+            }, cancellationToken);
         }
 
         /// <summary>

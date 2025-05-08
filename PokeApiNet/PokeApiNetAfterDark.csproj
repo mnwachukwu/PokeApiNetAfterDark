@@ -2,20 +2,23 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <Authors>JJ Banda</Authors>
-    <Description>.Net client for the PokeAPI api</Description>
-    <PackageProjectUrl>https://github.com/jtwotimes/PokeApiNet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jtwotimes/PokeApiNet</RepositoryUrl>
-    <PackageTags>pokemon pokeapi</PackageTags>
-    <PackageReleaseNotes>https://github.com/jtwotimes/PokeApiNet/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <Authors>JJ Banda, Silver (M. Nwachukwu)</Authors>
+    <Description>.Net client for PokeAPI, reading data locally from a copy of the API data in its entirety, structure and all. An offline solution, if PokeAPI ever "goes dark" - or offline - hence, "After Dark".</Description>
+    <PackageProjectUrl>https://github.com/mnwachukwu/PokeApiNetAfterDark</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mnwachukwu/PokeApiNetAfterDark</RepositoryUrl>
+    <PackageTags>pokemon pokeapi offline pokemon-data json api</PackageTags>
+    <PackageReleaseNotes>https://github.com/mnwachukwu/PokeApiNetAfterDark/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
+    <AssemblyName>PokeApiNetAfterDark</AssemblyName>
+    <RootNamespace>PokeApiNet</RootNamespace>
+    <Company>JJ Banda, Pluperfect Development</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>PokeApiNet.xml</DocumentationFile>
+    <DocumentationFile>PokeApiNetAfterDark.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

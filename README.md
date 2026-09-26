@@ -1,4 +1,7 @@
 # PokeApiNet: After Dark
+
+[![Build and test](https://github.com/mnwachukwu/PokeApiNetAfterDark/actions/workflows/ci.yml/badge.svg)](https://github.com/mnwachukwu/PokeApiNetAfterDark/actions/workflows/ci.yml)
+
 ![image](https://github.com/user-attachments/assets/03a9a26a-673d-423c-99f8-79f45c738ae7)
 
 So if the image above isn't explanation enough, what I've done is refitted PokeApiNet to work with the data stored at PokeAPI's api-data repository. It was actually rather painless, because of the way the data on PokeAPI's repository is structured. It is essentially a static copy of their API. Armed with that information, it only took a single `File.ReadAllText()` call to start reading data from the file system instead of the API.

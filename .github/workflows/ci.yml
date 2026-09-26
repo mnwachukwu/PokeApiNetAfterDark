@@ -1,0 +1,157 @@
+# Builds the library and runs both halves of its test suite.
+#
+# The unit tests need nothing: each builds its own temporary data directory. The integration tests
+# read a real copy of PokéAPI's api-data, which is ~500 MB and is not committed here — so this job
+# fetches the part of it the tests actually touch.
+#
+# Without that fetch the integration tests do not fail, they SKIP (see DataFactAttribute), which is
+# worse than useless in CI: a green run that proved nothing about reading real data.
+
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      # A shallow, sparse checkout of PokeAPI/api-data: one commit, and only the resources under test.
+      #
+      # Whole endpoint directories for the small ones, which come to about 14 MB together. The six
+      # large ones are listed resource by resource, because they are the bulk of the repository —
+      # pokemon alone is 312 MB and location-area another 68.
+      #
+      # ⚠ Cone mode also materializes the files sitting in each listed path's LEADING directories,
+      # which is what supplies every endpoint's own index.json. The paging tests read those, so if
+      # they ever start failing with "No PokéAPI data found for <endpoint>", that behavior is what
+      # changed and each large endpoint needs its index.json obtained another way.
+      - name: Check out the PokéAPI data the integration tests read
+        uses: actions/checkout@v7
+        with:
+          repository: PokeAPI/api-data
+          path: api-data
+          fetch-depth: 1
+          sparse-checkout: |
+            data/api/v2/ability
+            data/api/v2/berry
+            data/api/v2/berry-firmness
+            data/api/v2/berry-flavor
+            data/api/v2/characteristic
+            data/api/v2/contest-effect
+            data/api/v2/contest-type
+            data/api/v2/egg-group
+            data/api/v2/encounter-condition
+            data/api/v2/encounter-condition-value
+            data/api/v2/encounter-method
+            data/api/v2/evolution-chain
+            data/api/v2/evolution-trigger
+            data/api/v2/gender
+            data/api/v2/generation
+            data/api/v2/growth-rate
+            data/api/v2/item-attribute
+            data/api/v2/item-category
+            data/api/v2/item-fling-effect
+            data/api/v2/item-pocket
+            data/api/v2/language
+            data/api/v2/location
+            data/api/v2/machine
+            data/api/v2/move-ailment
+            data/api/v2/move-battle-style
+            data/api/v2/move-category
+            data/api/v2/move-damage-class
+            data/api/v2/move-learn-method
+            data/api/v2/move-target
+            data/api/v2/nature
+            data/api/v2/pal-park-area
+            data/api/v2/pokeathlon-stat
+            data/api/v2/pokedex
+            data/api/v2/pokemon-color
+            data/api/v2/pokemon-habitat
+            data/api/v2/pokemon-shape
+            data/api/v2/region
+            data/api/v2/stat
+            data/api/v2/super-contest-effect
+            data/api/v2/type
+            data/api/v2/version
+            data/api/v2/version-group
+            data/api/v2/item/1
+            data/api/v2/location-area/1
+            data/api/v2/pokemon-form/1
+            data/api/v2/pokemon-species/1
+            data/api/v2/move/1
+            data/api/v2/move/10016
+            data/api/v2/move/10017
+            data/api/v2/move/10018
+            data/api/v2/pokemon/1
+            data/api/v2/pokemon/2
+            data/api/v2/pokemon/3
+            data/api/v2/pokemon/35
+            data/api/v2/pokemon/36
+            data/api/v2/pokemon/39
+            data/api/v2/pokemon/40
+            data/api/v2/pokemon/81
+            data/api/v2/pokemon/82
+            data/api/v2/pokemon/122
+            data/api/v2/pokemon/173
+            data/api/v2/pokemon/174
+            data/api/v2/pokemon/175
+            data/api/v2/pokemon/176
+            data/api/v2/pokemon/183
+            data/api/v2/pokemon/184
+            data/api/v2/pokemon/209
+            data/api/v2/pokemon/210
+            data/api/v2/pokemon/280
+            data/api/v2/pokemon/281
+            data/api/v2/pokemon/282
+            data/api/v2/pokemon/298
+            data/api/v2/pokemon/303
+            data/api/v2/pokemon/439
+            data/api/v2/pokemon/468
+            data/api/v2/pokemon/546
+            data/api/v2/pokemon/10008
+            data/api/v2/pokemon/10009
+            data/api/v2/pokemon/10010
+            data/api/v2/pokemon/10011
+            data/api/v2/pokemon/10012
+
+      - name: Say how much data was fetched
+        run: du -sh api-data/data/api/v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build
+        run: dotnet build PokeApiNetAfterDark.sln -c Release --nologo
+
+      # POKEAPI_DATA is what TestData looks for. Set it and the integration tests stop skipping.
+      #
+      # The skip count is then checked, in the same run rather than a second one: a skip is how this
+      # suite reports "no data", so a run where every integration test skipped would otherwise pass
+      # green having proved nothing. If that happens the checkout above needs fixing, not ignoring.
+      - name: Test
+        env:
+          POKEAPI_DATA: ${{ github.workspace }}/api-data/data/api/v2
+        run: |
+          set -euo pipefail
+          dotnet test PokeApiNetAfterDark.sln -c Release --no-build --nologo | tee test-output.txt
+          skipped=$(grep -oE 'Skipped:[[:space:]]+[0-9]+' test-output.txt | grep -oE '[0-9]+' | head -1 || echo missing)
+          echo "skipped: $skipped"
+          if [ "$skipped" != "0" ]; then
+            echo "::error::$skipped tests skipped — the api-data checkout did not supply what the integration tests read."
+            exit 1
+          fi

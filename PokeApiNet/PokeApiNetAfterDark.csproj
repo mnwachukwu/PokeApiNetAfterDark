@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
     <Authors>JJ Banda, Silver (M. Nwachukwu)</Authors>
     <Description>.Net client for PokeAPI, reading data locally from a copy of the API data in its entirety, structure and all. An offline solution, if PokeAPI ever "goes dark" - or offline - hence, "After Dark".</Description>
     <PackageProjectUrl>https://github.com/mnwachukwu/PokeApiNetAfterDark</PackageProjectUrl>
@@ -15,25 +15,17 @@
     <AssemblyName>PokeApiNetAfterDark</AssemblyName>
     <RootNamespace>PokeApiNetAfterDark</RootNamespace>
     <Company>JJ Banda, Pluperfect Development</Company>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>PokeApiNetAfterDark.xml</DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>PokeApiNet.xml</DocumentationFile>
-  </PropertyGroup>
-
+  <!--
+    One package. System.Text.Json, System.Collections.Immutable and the dynamic-dispatch support that
+    Microsoft.CSharp carried are all part of the .NET 10 shared framework, so referencing them here
+    would pin older copies over what the runtime already ships. Caching.Memory is not in the
+    framework, so it stays.
+  -->
   <ItemGroup>
-    <None Remove="PokeApiNet.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.20" />
-    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-    <PackageReference Include="System.Text.Json" Version="9.0.20" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.12" />
   </ItemGroup>
 
   <ItemGroup>

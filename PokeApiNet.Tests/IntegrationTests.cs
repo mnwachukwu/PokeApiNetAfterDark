@@ -1,21 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using PokeApiNetAfterDark.Models;
 using Xunit;
 
-namespace PokeApiNet.Tests;
+namespace PokeApiNetAfterDark.Tests;
 
+/// <summary>Reads every resource type out of a real copy of PokéAPI's api-data, which is what the
+/// library exists to do. The corpus is far too large to commit, so these skip themselves unless
+/// <c>POKEAPI_DATA</c> points at one — see <see cref="TestData"/>.</summary>
 public class IntegrationTests
 {
     public static IEnumerable<object[]> GenerateIds(int start, int count) =>
         Enumerable.Range(start, count).Select(index => new object[] { index });
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var berry = await client.GetResourceAsync<Berry>(1);
@@ -24,12 +25,12 @@ public class IntegrationTests
         Assert.True(berry.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryFirmnessResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var berryFirmness = await client.GetResourceAsync<BerryFirmness>(1);
@@ -38,12 +39,12 @@ public class IntegrationTests
         Assert.True(berryFirmness.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryFlavorResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var berryFlavor = await client.GetResourceAsync<BerryFlavor>(1);
@@ -52,12 +53,12 @@ public class IntegrationTests
         Assert.True(berryFlavor.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLanguageResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var language = await client.GetResourceAsync<Language>(1);
@@ -66,12 +67,12 @@ public class IntegrationTests
         Assert.True(language.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetContestTypeResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var contestType = await client.GetResourceAsync<ContestType>(1);
@@ -80,12 +81,12 @@ public class IntegrationTests
         Assert.True(contestType.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetContestEffectResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var contestEffect = await client.GetResourceAsync<ContestEffect>(1);
@@ -94,12 +95,12 @@ public class IntegrationTests
         Assert.True(contestEffect.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetSuperContestEffectResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var superContestEffect = await client.GetResourceAsync<SuperContestEffect>(1);
@@ -108,12 +109,12 @@ public class IntegrationTests
         Assert.True(superContestEffect.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterMethodResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var evolutionMethod = await client.GetResourceAsync<EncounterMethod>(1);
@@ -122,12 +123,12 @@ public class IntegrationTests
         Assert.True(evolutionMethod.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterConditionResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var encounterCondition = await client.GetResourceAsync<EncounterCondition>(1);
@@ -136,12 +137,12 @@ public class IntegrationTests
         Assert.True(encounterCondition.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterConditionValueResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var encounterConditionValue = await client.GetResourceAsync<EncounterConditionValue>(1);
@@ -150,12 +151,12 @@ public class IntegrationTests
         Assert.True(encounterConditionValue.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEvolutionChainResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var evolutionChain = await client.GetResourceAsync<EvolutionChain>(1);
@@ -164,12 +165,12 @@ public class IntegrationTests
         Assert.True(evolutionChain.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEvolutionTriggerResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var evolutionTrigger = await client.GetResourceAsync<EvolutionTrigger>(1);
@@ -178,12 +179,12 @@ public class IntegrationTests
         Assert.True(evolutionTrigger.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGenerationResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var generation = await client.GetResourceAsync<Generation>(1);
@@ -192,12 +193,12 @@ public class IntegrationTests
         Assert.True(generation.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokedexResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokedex = await client.GetResourceAsync<Pokedex>(1);
@@ -206,26 +207,26 @@ public class IntegrationTests
         Assert.True(pokedex.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetVersionResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
-        var version = await client.GetResourceAsync<PokeApiNet.Version>(1);
+        var version = await client.GetResourceAsync<Models.Version>(1);
 
         // assert
         Assert.True(version.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetVersionGroupResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var versionGroup = await client.GetResourceAsync<VersionGroup>(1);
@@ -234,12 +235,12 @@ public class IntegrationTests
         Assert.True(versionGroup.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var item = await client.GetResourceAsync<Item>(1);
@@ -248,12 +249,12 @@ public class IntegrationTests
         Assert.True(item.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemAttributeResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var itemAttribute = await client.GetResourceAsync<ItemAttribute>(1);
@@ -262,12 +263,12 @@ public class IntegrationTests
         Assert.True(itemAttribute.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemCategoryResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var itemCategory = await client.GetResourceAsync<ItemCategory>(1);
@@ -276,12 +277,12 @@ public class IntegrationTests
         Assert.True(itemCategory.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemFlingEffectResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var itemFlingEffect = await client.GetResourceAsync<ItemFlingEffect>(1);
@@ -290,12 +291,12 @@ public class IntegrationTests
         Assert.True(itemFlingEffect.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemPocketResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var itemPocket = await client.GetResourceAsync<ItemPocket>(1);
@@ -304,12 +305,12 @@ public class IntegrationTests
         Assert.True(itemPocket.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLocationResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var location = await client.GetResourceAsync<Location>(1);
@@ -318,12 +319,12 @@ public class IntegrationTests
         Assert.True(location.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLocationAreaResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var locationArea = await client.GetResourceAsync<LocationArea>(1);
@@ -332,12 +333,12 @@ public class IntegrationTests
         Assert.True(locationArea.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPalParkAreaResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var palParkArea = await client.GetResourceAsync<PalParkArea>(1);
@@ -346,12 +347,12 @@ public class IntegrationTests
         Assert.True(palParkArea.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetRegionResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var region = await client.GetResourceAsync<Region>(1);
@@ -360,12 +361,12 @@ public class IntegrationTests
         Assert.True(region.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMachineResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var machine = await client.GetResourceAsync<Machine>(1);
@@ -374,14 +375,14 @@ public class IntegrationTests
         Assert.True(machine.Id != default);
     }
 
-    [Theory]
+    [DataTheory]
     [MemberData(nameof(GenerateIds), 1, 1)]
     [MemberData(nameof(GenerateIds), 10_016, 3)]
     [Trait("Category", "Integration")]
     public async Task GetMoveResourceAsyncIntegrationTest(int id)
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var move = await client.GetResourceAsync<Move>(id);
@@ -390,12 +391,12 @@ public class IntegrationTests
         Assert.True(move.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveAilmentResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveAilment = await client.GetResourceAsync<MoveAilment>(1);
@@ -404,12 +405,12 @@ public class IntegrationTests
         Assert.True(moveAilment.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveBattleStyleResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveBattleStyle = await client.GetResourceAsync<MoveBattleStyle>(1);
@@ -418,12 +419,12 @@ public class IntegrationTests
         Assert.True(moveBattleStyle.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveCategoryResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveCategory = await client.GetResourceAsync<MoveCategory>(1);
@@ -432,12 +433,12 @@ public class IntegrationTests
         Assert.True(moveCategory.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveDamageClassResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveDamageClass = await client.GetResourceAsync<MoveDamageClass>(1);
@@ -446,12 +447,12 @@ public class IntegrationTests
         Assert.True(moveDamageClass.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveLearnMethodResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveLearnMethod = await client.GetResourceAsync<MoveLearnMethod>(1);
@@ -460,12 +461,12 @@ public class IntegrationTests
         Assert.True(moveLearnMethod.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveTargetResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var moveTarget = await client.GetResourceAsync<MoveTarget>(1);
@@ -474,12 +475,12 @@ public class IntegrationTests
         Assert.True(moveTarget.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetAbilityResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var ability = await client.GetResourceAsync<Ability>(1);
@@ -488,12 +489,12 @@ public class IntegrationTests
         Assert.True(ability.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetCharacteristicResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var characteristic = await client.GetResourceAsync<Characteristic>(1);
@@ -502,12 +503,12 @@ public class IntegrationTests
         Assert.True(characteristic.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEggGroupResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var eggGroup = await client.GetResourceAsync<EggGroup>(1);
@@ -516,12 +517,12 @@ public class IntegrationTests
         Assert.True(eggGroup.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGenderResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var gender = await client.GetResourceAsync<Gender>(1);
@@ -530,12 +531,12 @@ public class IntegrationTests
         Assert.True(gender.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGrowthRateResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var growthRate = await client.GetResourceAsync<GrowthRate>(1);
@@ -544,12 +545,12 @@ public class IntegrationTests
         Assert.True(growthRate.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetNatureResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var nature = await client.GetResourceAsync<Nature>(1);
@@ -558,12 +559,12 @@ public class IntegrationTests
         Assert.True(nature.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokeathlonStatResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokeathlonStat = await client.GetResourceAsync<PokeathlonStat>(1);
@@ -572,12 +573,12 @@ public class IntegrationTests
         Assert.True(pokeathlonStat.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemon = await client.GetResourceAsync<Pokemon>(1);
@@ -586,12 +587,12 @@ public class IntegrationTests
         Assert.True(pokemon.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonColorResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemonColor = await client.GetResourceAsync<PokemonColor>(1);
@@ -600,12 +601,12 @@ public class IntegrationTests
         Assert.True(pokemonColor.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonFormResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemonForm = await client.GetResourceAsync<PokemonForm>(1);
@@ -614,12 +615,12 @@ public class IntegrationTests
         Assert.True(pokemonForm.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonHabitatResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemonHabitat = await client.GetResourceAsync<PokemonHabitat>(1);
@@ -628,12 +629,12 @@ public class IntegrationTests
         Assert.True(pokemonHabitat.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonShapeResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemonShape = await client.GetResourceAsync<PokemonShape>(1);
@@ -642,12 +643,12 @@ public class IntegrationTests
         Assert.True(pokemonShape.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonSpeciesResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var pokemonSpecies = await client.GetResourceAsync<PokemonSpecies>(1);
@@ -656,12 +657,12 @@ public class IntegrationTests
         Assert.True(pokemonSpecies.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonSpeciesResolveAllAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
         var pokemonSpecies = await client.GetResourceAsync<PokemonSpecies>(1);
 
         // act
@@ -671,12 +672,12 @@ public class IntegrationTests
         Assert.True(eggGroups.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetStatResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var stat = await client.GetResourceAsync<Stat>(1);
@@ -685,26 +686,26 @@ public class IntegrationTests
         Assert.True(stat.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetTypeResourceAsyncIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
-        var type = await client.GetResourceAsync<PokeApiNet.Type>(1);
+        var type = await client.GetResourceAsync<Models.Type>(1);
 
         // assert
         Assert.True(type.Id != default);
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Berry>();
@@ -713,12 +714,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryFirmnessPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<BerryFirmness>();
@@ -727,12 +728,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetBerryFlavorPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<BerryFlavor>();
@@ -741,12 +742,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLanguagePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Language>();
@@ -755,12 +756,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetContestTypePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<ContestType>();
@@ -769,12 +770,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetContestEffectPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetApiResourcePageAsync<ContestEffect>();
@@ -783,12 +784,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetSuperContestEffectPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetApiResourcePageAsync<SuperContestEffect>();
@@ -797,12 +798,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterMethodPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<EncounterMethod>();
@@ -811,12 +812,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterConditionPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<EncounterCondition>();
@@ -825,12 +826,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEncounterConditionValuePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<EncounterConditionValue>();
@@ -839,12 +840,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEvolutionChainPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetApiResourcePageAsync<EvolutionChain>();
@@ -853,12 +854,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEvolutionTriggerPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<EvolutionTrigger>();
@@ -867,12 +868,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGenerationPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Generation>();
@@ -881,12 +882,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokedexPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Pokedex>();
@@ -895,27 +896,27 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetVersionPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
-        var page = await client.GetNamedResourcePageAsync<Version>();
+        var page = await client.GetNamedResourcePageAsync<Models.Version>();
 
 
         // assert
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetVersionGroupPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<VersionGroup>();
@@ -924,12 +925,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Item>();
@@ -938,12 +939,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemAttributePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<ItemAttribute>();
@@ -952,12 +953,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemCategoryPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<ItemCategory>();
@@ -966,12 +967,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemFlingEffectPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<ItemFlingEffect>();
@@ -980,12 +981,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetItemPocketPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<ItemPocket>();
@@ -994,12 +995,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLocationPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Location>();
@@ -1008,12 +1009,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetLocationAreaPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<LocationArea>();
@@ -1022,12 +1023,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPalParkAreaPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PalParkArea>();
@@ -1036,12 +1037,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetRegionPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Region>();
@@ -1050,12 +1051,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMachinePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetApiResourcePageAsync<Machine>();
@@ -1064,12 +1065,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMovePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Move>();
@@ -1078,12 +1079,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveAilmentPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveAilment>();
@@ -1092,12 +1093,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveBattleStylePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveBattleStyle>();
@@ -1106,12 +1107,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveCategoryPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveCategory>();
@@ -1120,12 +1121,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveDamageClassPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveDamageClass>();
@@ -1134,12 +1135,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveLearnMethodPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveLearnMethod>();
@@ -1148,12 +1149,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetMoveTargetPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<MoveTarget>();
@@ -1162,12 +1163,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetAbilityPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Ability>();
@@ -1176,12 +1177,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetCharacteristicPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetApiResourcePageAsync<Characteristic>();
@@ -1190,12 +1191,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetEggGroupPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<EggGroup>();
@@ -1204,12 +1205,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGenderPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Gender>();
@@ -1218,12 +1219,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetGrowthRatePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<GrowthRate>();
@@ -1232,12 +1233,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetNaturePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Nature>();
@@ -1246,12 +1247,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokeathlonStatPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokeathlonStat>();
@@ -1260,12 +1261,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Pokemon>();
@@ -1274,12 +1275,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonColorPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokemonColor>();
@@ -1288,12 +1289,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonFormPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokemonForm>();
@@ -1302,12 +1303,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonHabitatPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokemonHabitat>();
@@ -1316,12 +1317,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonShapePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokemonShape>();
@@ -1330,12 +1331,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetPokemonSpeciesPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<PokemonSpecies>();
@@ -1344,12 +1345,12 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetStatPagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
         var page = await client.GetNamedResourcePageAsync<Stat>();
@@ -1358,15 +1359,15 @@ public class IntegrationTests
         Assert.True(page.Results.Any());
     }
 
-    [Fact]
+    [DataFact]
     [Trait("Category", "Integration")]
     public async Task GetTypePagedResourceIntegrationTest()
     {
         // assemble
-        using PokeApiClient client = new();
+        using var client = TestData.CreateClient();
 
         // act
-        var page = await client.GetNamedResourcePageAsync<Type>();
+        var page = await client.GetNamedResourcePageAsync<Models.Type>();
 
         // assert
         Assert.True(page.Results.Any());
@@ -1375,7 +1376,7 @@ public class IntegrationTests
     /// <summary>
     /// Verifies that Pokemon with past types data have theirs fetched correctly.
     /// </summary>
-    [Theory]
+    [DataTheory]
     [InlineData(35, 5, 1, 1)]
     [InlineData(36, 5, 1, 1)]
     [InlineData(39, 5, 1, 1)]
@@ -1407,7 +1408,7 @@ public class IntegrationTests
     public static async Task GetPastTypesTest_HasPastTypes(int pokemonID, int generation, int type, int slot)
     {
         // assemble
-        using (var client = new PokeApiClient())
+        using (var client = TestData.CreateClient())
         {
             // act
             var pokemon = await client.GetResourceAsync<Pokemon>(pokemonID);
@@ -1437,14 +1438,14 @@ public class IntegrationTests
     /// Verifies that a Pokemon with no past types data
     /// has an empty list as its PastTypes property.
     /// </summary>
-    [Theory]
+    [DataTheory]
     [InlineData(1)]
     [InlineData(2)]
     [InlineData(3)]
     public static async Task GetPastTypesTest_NoPastTypes(int pokemonID)
     {
         // assemble
-        using (var client = new PokeApiClient())
+        using (var client = TestData.CreateClient())
         {
             // act
             var pokemon = await client.GetResourceAsync<Pokemon>(pokemonID);
@@ -1455,12 +1456,12 @@ public class IntegrationTests
         }
     }
 
-    [Fact]
+    [DataFact]
     public async Task GetAllNamedResourcesAsyncDoesPaging()
     {
         var allPageResults = new List<NamedApiResource<Berry>>();
 
-        using var client = new PokeApiClient();
+        using var client = TestData.CreateClient();
         await foreach (var berryRef in client.GetAllNamedResourcesAsync<Berry>())
         {
             allPageResults.Add(berryRef);
@@ -1469,12 +1470,12 @@ public class IntegrationTests
         Assert.NotEmpty(allPageResults);
     }
 
-    [Fact]
+    [DataFact]
     public async Task GetAllApiResourcesAsyncDoesPaging()
     {
         var allPageResults = new List<ApiResource<EvolutionChain>>();
 
-        using var client = new PokeApiClient();
+        using var client = TestData.CreateClient();
         await foreach (var chainRef in client.GetAllApiResourcesAsync<EvolutionChain>())
         {
             allPageResults.Add(chainRef);

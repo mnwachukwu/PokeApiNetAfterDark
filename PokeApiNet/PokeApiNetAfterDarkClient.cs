@@ -25,7 +25,8 @@ namespace PokeApiNetAfterDark
         public static readonly ProductHeaderValue DefaultUserAgent = GetDefaultUserAgent();
 
         /// <summary>
-        /// The folder holding a copy of PokéAPI's api-data, resolved against the working directory.
+        /// The folder a client reads from unless it is given another one: a copy of PokéAPI's
+        /// api-data, resolved against the working directory.
         /// </summary>
         public const string DataDirectoryName = "PokeAPI-Data";
 
@@ -33,11 +34,33 @@ namespace PokeApiNetAfterDark
         private readonly Uri _baseUri = new Uri("https://pokeapi.co/api/v2/");
         private readonly ResourceCacheManager _resourceCache = new ResourceCacheManager();
         private readonly ResourceListCacheManager _resourceListCache = new ResourceListCacheManager();
+        private readonly string _dataDirectory = DataDirectoryName;
+
+        /// <summary>
+        /// The folder this client reads resources from.
+        /// </summary>
+        public string DataDirectory => _dataDirectory;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         public PokeApiNetAfterDarkClient() : this(DefaultUserAgent) {}
+
+        /// <summary>
+        /// Initializes a new instance reading from <paramref name="dataDirectory"/> rather than from
+        /// <see cref="DataDirectoryName"/> beside the application. An absolute path, or one relative
+        /// to the working directory.
+        /// </summary>
+        /// <param name="dataDirectory">The folder holding a copy of PokéAPI's api-data.</param>
+        public PokeApiNetAfterDarkClient(string dataDirectory) : this(DefaultUserAgent)
+        {
+            if (string.IsNullOrWhiteSpace(dataDirectory))
+            {
+                throw new ArgumentException("A data directory is required.", nameof(dataDirectory));
+            }
+
+            _dataDirectory = dataDirectory;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PokeApiNetAfterDarkClient"/> with 
@@ -103,8 +126,10 @@ namespace PokeApiNetAfterDark
 
         private static ProductHeaderValue GetDefaultUserAgent()
         {
-            var version = typeof(PokeApiNetAfterDarkClient).Assembly.GetName().Version;
-            return new ProductHeaderValue("PokeApiNet", $"{version.Major}.{version.Minor}");
+            // System.Version, not the PokéAPI game Version this library also models.
+            var version = typeof(PokeApiNetAfterDarkClient).Assembly.GetName().Version ?? new System.Version(1, 0);
+
+            return new ProductHeaderValue("PokeApiNetAfterDark", $"{version.Major}.{version.Minor}");
         }
 
         /// <summary>
@@ -128,8 +153,8 @@ namespace PokeApiNetAfterDark
             // handing back a null that surfaces as a NullReferenceException somewhere further on.
             return await GetAsync<T>($"{apiEndpoint}/{sanitizedApiParam}/", cancellationToken)
                    ?? throw new InvalidOperationException(
-                       $"No PokéAPI data found for {apiEndpoint}/{sanitizedApiParam}. " +
-                       $"Check that the {DataDirectoryName} directory sits beside the application and is complete.");
+                       $"No PokéAPI data found for {apiEndpoint}/{sanitizedApiParam} " +
+                       $"under '{_dataDirectory}'. Check that the directory exists and is complete.");
         }
 
         /// <summary>
@@ -480,14 +505,16 @@ namespace PokeApiNetAfterDark
         /// not be read after <c>maxAttempts</c>, which the callers that expect a resource turn into an
         /// exception; paging treats it as the end of the data.
         /// </summary>
-        private static async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken)
+        private async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken)
         {
+            var dataDirectory = _dataDirectory;
+
             return await Task.Run(() =>
             {
                 const int maxAttempts = 10;
                 const int delayMs = 50;
 
-                var path = Path.Combine(DataDirectoryName, url.Replace('/', Path.DirectorySeparatorChar), "index.json");
+                var path = Path.Combine(dataDirectory, url.Replace('/', Path.DirectorySeparatorChar), "index.json");
 
                 for (var attempt = 0; attempt < maxAttempts; attempt++)
                 {
@@ -535,16 +562,23 @@ namespace PokeApiNetAfterDark
             return QueryHelpers.AddQueryString(uri, queryParameters);
         }
 
+        // Each resource shadows ResourceBase.ApiEndpoint with an internal static of its own, so this is
+        // read by reflection rather than through the base. A type without one cannot be addressed at
+        // all, which is a wiring mistake in the model rather than a condition to carry a null through.
         private static string GetApiEndpointString<T>()
         {
-            PropertyInfo propertyInfo = typeof(T).GetProperty("ApiEndpoint", BindingFlags.Static | BindingFlags.NonPublic);
-            return propertyInfo.GetValue(null).ToString();
+            PropertyInfo? propertyInfo = typeof(T).GetProperty("ApiEndpoint", BindingFlags.Static | BindingFlags.NonPublic);
+
+            return propertyInfo?.GetValue(null)?.ToString()
+                   ?? throw new InvalidOperationException(
+                       $"{typeof(T).Name} declares no ApiEndpoint, so it cannot be looked up.");
         }
 
         private static bool IsApiEndpointCaseSensitive<T>()
         {
-            PropertyInfo propertyInfo = typeof(T).GetProperty("IsApiEndpointCaseSensitive", BindingFlags.Static | BindingFlags.NonPublic);
-            return propertyInfo != null && (bool)propertyInfo.GetValue(null);
+            PropertyInfo? propertyInfo = typeof(T).GetProperty("IsApiEndpointCaseSensitive", BindingFlags.Static | BindingFlags.NonPublic);
+
+            return propertyInfo?.GetValue(null) is true;
         }
     }
 }

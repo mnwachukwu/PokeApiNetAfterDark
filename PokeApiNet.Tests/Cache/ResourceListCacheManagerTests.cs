@@ -1,8 +1,9 @@
-﻿using PokeApiNet.Cache;
+﻿using PokeApiNetAfterDark.Cache;
+using PokeApiNetAfterDark.Models;
 using System;
 using Xunit;
 
-namespace PokeApiNet.Tests.Cache;
+namespace PokeApiNetAfterDark.Tests.Cache;
 
 public class ResourceListCacheManagerTests
 {

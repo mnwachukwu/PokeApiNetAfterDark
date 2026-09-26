@@ -818,6 +818,12 @@ namespace PokeApiNetAfterDark.Models
             public OfficialArtworkSprites OfficialArtwork { get; set; } = null!;
 
             /// <summary>
+            /// Showdown sprites
+            /// </summary>
+            [JsonPropertyName("showdown")]
+            public ShowdownSprites Showdown { get; set; } = null!;
+
+            /// <summary>
             /// DreamWorld Pókemon sprites
             /// </summary>
             public class DreamWorldSprites
@@ -881,6 +887,60 @@ namespace PokeApiNetAfterDark.Models
                 /// </summary>
                 [JsonPropertyName("front_shiny")]
                 public string FrontShiny { get; set; } = null!;
+            }
+
+            /// <summary>
+            /// Showdown sprites
+            /// </summary>
+            public class ShowdownSprites
+            {
+                /// <summary>
+                /// The default depiction of this Pokémon from the back in battle.
+                /// </summary>
+                [JsonPropertyName("back_default")]
+                public string BackDefault { get; set; } = null!;
+
+                /// <summary>
+                /// The female depiction of this Pokémon from the back in battle.
+                /// </summary>
+                [JsonPropertyName("back_female")]
+                public string BackFemale { get; set; } = null!;
+
+                /// <summary>
+                /// The shiny depiction of this Pokémon from the back in battle.
+                /// </summary>
+                [JsonPropertyName("back_shiny")]
+                public string BackShiny { get; set; } = null!;
+
+                /// <summary>
+                /// The shiny female depiction of this Pokémon from the back in battle.
+                /// </summary>
+                [JsonPropertyName("back_shiny_female")]
+                public string BackShinyFemale { get; set; } = null!;
+
+                /// <summary>
+                /// The default depiction of this Pokémon from the front in battle.
+                /// </summary>
+                [JsonPropertyName("front_default")]
+                public string FrontDefault { get; set; } = null!;
+
+                /// <summary>
+                /// The female depiction of this Pokémon from the front in battle.
+                /// </summary>
+                [JsonPropertyName("front_female")]
+                public string FrontFemale { get; set; } = null!;
+
+                /// <summary>
+                /// The shiny depiction of this Pokémon from the front in battle.
+                /// </summary>
+                [JsonPropertyName("front_shiny")]
+                public string FrontShiny { get; set; } = null!;
+
+                /// <summary>
+                /// The shiny female depiction of this Pokémon from the front in battle.
+                /// </summary>
+                [JsonPropertyName("front_shiny_female")]
+                public string FrontShinyFemale { get; set; } = null!;
             }
         }
 

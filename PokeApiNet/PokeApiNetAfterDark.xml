@@ -2898,6 +2898,11 @@
             Official Artwork sprites
             </summary>
         </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.Showdown">
+            <summary>
+            Showdown sprites
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.DreamWorldSprites">
             <summary>
             DreamWorld Pókemon sprites
@@ -2951,6 +2956,51 @@
         <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.OfficialArtworkSprites.FrontShiny">
             <summary>
             The shiny depiction of this Pokémon from the front in battle.
+            </summary>
+        </member>
+        <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites">
+            <summary>
+            Showdown sprites
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.BackDefault">
+            <summary>
+            The default depiction of this Pokémon from the back in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.BackFemale">
+            <summary>
+            The female depiction of this Pokémon from the back in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.BackShiny">
+            <summary>
+            The shiny depiction of this Pokémon from the back in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.BackShinyFemale">
+            <summary>
+            The shiny female depiction of this Pokémon from the back in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.FrontDefault">
+            <summary>
+            The default depiction of this Pokémon from the front in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.FrontFemale">
+            <summary>
+            The female depiction of this Pokémon from the front in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.FrontShiny">
+            <summary>
+            The shiny depiction of this Pokémon from the front in battle.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.OtherSprites.ShowdownSprites.FrontShinyFemale">
+            <summary>
+            The shiny female depiction of this Pokémon from the front in battle.
             </summary>
         </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites">
@@ -4465,13 +4515,27 @@
         </member>
         <member name="F:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DataDirectoryName">
             <summary>
-            The folder holding a copy of PokéAPI's api-data, resolved against the working directory.
+            The folder a client reads from unless it is given another one: a copy of PokéAPI's
+            api-data, resolved against the working directory.
+            </summary>
+        </member>
+        <member name="P:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DataDirectory">
+            <summary>
+            The folder this client reads resources from.
             </summary>
         </member>
         <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.#ctor">
             <summary>
             Default constructor
             </summary>
+        </member>
+        <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.#ctor(System.String)">
+            <summary>
+            Initializes a new instance reading from <paramref name="dataDirectory"/> rather than from
+            <see cref="F:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DataDirectoryName"/> beside the application. An absolute path, or one relative
+            to the working directory.
+            </summary>
+            <param name="dataDirectory">The folder holding a copy of PokéAPI's api-data.</param>
         </member>
         <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.#ctor(System.Net.Http.Headers.ProductHeaderValue)">
             <summary>

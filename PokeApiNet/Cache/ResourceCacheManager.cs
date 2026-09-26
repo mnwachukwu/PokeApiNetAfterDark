@@ -49,7 +49,7 @@ namespace PokeApiNetAfterDark.Cache
         /// <typeparam name="T">Type of object to get</typeparam>
         /// <param name="id">Id of the resource</param>
         /// <returns>The cached object or null if not found</returns>
-        public T Get<T>(int id) where T : ResourceBase
+        public T? Get<T>(int id) where T : ResourceBase
         {
             System.Type resourceType = typeof(T);
             return _resourceCaches[resourceType].Get(id) as T;
@@ -61,7 +61,7 @@ namespace PokeApiNetAfterDark.Cache
         /// <typeparam name="T">Type of object to get</typeparam>
         /// <param name="name">Name of the resource</param>
         /// <returns>The cached object or null if not found</returns>
-        public T Get<T>(string name) where T : NamedApiResource
+        public T? Get<T>(string name) where T : NamedApiResource
         {
             System.Type resourceType = typeof(T);
             return _resourceCaches[resourceType].Get(name) as T;
@@ -143,16 +143,16 @@ namespace PokeApiNetAfterDark.Cache
             /// Gets a resource from cache by id
             /// </summary>
             /// <param name="id">The id of the resource</param>
-            /// <returns>The object from cache with the matching id</returns>
-            public ResourceBase Get(int id) =>
+            /// <returns>The object from cache with the matching id, or null on a miss</returns>
+            public ResourceBase? Get(int id) =>
                 _idCache.Get<ResourceBase>(id);
 
             /// <summary>
             /// Gets a resource from cache by name
             /// </summary>
             /// <param name="name">The name of the resource</param>
-            /// <returns>The object from cache with the matching name</returns>
-            public ResourceBase Get(string name) =>
+            /// <returns>The object from cache with the matching name, or null on a miss</returns>
+            public ResourceBase? Get(string name) =>
                 _nameCache.Get<ResourceBase>(name.ToLowerInvariant());
 
             /// <summary>

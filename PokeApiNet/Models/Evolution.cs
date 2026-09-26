@@ -23,7 +23,7 @@ namespace PokeApiNetAfterDark.Models
         /// a baby Pokémon rather than a basic Pokémon.
         /// </summary>
         [JsonPropertyName("baby_trigger_item")]
-        public NamedApiResource<Item> BabyTriggerItem { get; set; }
+        public NamedApiResource<Item> BabyTriggerItem { get; set; } = null!;
 
         /// <summary>
         /// The base chain link object. Each link contains
@@ -31,7 +31,7 @@ namespace PokeApiNetAfterDark.Models
         /// Each link references the next Pokémon in the
         /// natural evolution order.
         /// </summary>
-        public ChainLink Chain { get; set; }
+        public ChainLink Chain { get; set; } = null!;
     }
 
     /// <summary>
@@ -49,20 +49,20 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokémon species at this point in the evolution chain.
         /// </summary>
-        public NamedApiResource<PokemonSpecies> Species { get; set; }
+        public NamedApiResource<PokemonSpecies> Species { get; set; } = null!;
 
         /// <summary>
         /// All details regarding the specific details of the referenced
         /// Pokémon species evolution.
         /// </summary>
         [JsonPropertyName("evolution_details")]
-        public List<EvolutionDetail> EvolutionDetails { get; set; }
+        public List<EvolutionDetail> EvolutionDetails { get; set; } = null!;
 
         /// <summary>
         /// A List of chain objects.
         /// </summary>
         [JsonPropertyName("evolves_to")]
-        public List<ChainLink> EvolvesTo { get; set; }
+        public List<ChainLink> EvolvesTo { get; set; } = null!;
     }
 
     /// <summary>
@@ -73,13 +73,13 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The item required to cause evolution this into Pokémon species.
         /// </summary>
-        public NamedApiResource<Item> Item { get; set; }
+        public NamedApiResource<Item> Item { get; set; } = null!;
 
         /// <summary>
         /// The type of event that triggers evolution into this Pokémon
         /// species.
         /// </summary>
-        public NamedApiResource<EvolutionTrigger> Trigger { get; set; }
+        public NamedApiResource<EvolutionTrigger> Trigger { get; set; } = null!;
 
         /// <summary>
         /// The id of the gender of the evolving Pokémon species must be in
@@ -92,7 +92,7 @@ namespace PokeApiNetAfterDark.Models
         /// evolution trigger event to evolve into this Pokémon species.
         /// </summary>
         [JsonPropertyName("held_item")]
-        public NamedApiResource<Item> HeldItem { get; set; }
+        public NamedApiResource<Item> HeldItem { get; set; } = null!;
 
         /// <summary>
         /// The move that must be known by the evolving Pokémon species
@@ -100,7 +100,7 @@ namespace PokeApiNetAfterDark.Models
         /// this Pokémon species.
         /// </summary>
         [JsonPropertyName("known_move")]
-        public NamedApiResource<Move> KnownMove { get; set; }
+        public NamedApiResource<Move> KnownMove { get; set; } = null!;
 
         /// <summary>
         /// The evolving Pokémon species must know a move with this type
@@ -108,12 +108,12 @@ namespace PokeApiNetAfterDark.Models
         /// Pokémon species.
         /// </summary>
         [JsonPropertyName("known_move_type")]
-        public NamedApiResource<Type> KnownMoveType { get; set; }
+        public NamedApiResource<Type> KnownMoveType { get; set; } = null!;
 
         /// <summary>
         /// The location the evolution must be triggered at.
         /// </summary>
-        public NamedApiResource<Location> Location { get; set; }
+        public NamedApiResource<Location> Location { get; set; } = null!;
 
         /// <summary>
         /// The minimum required level of the evolving Pokémon species to
@@ -156,7 +156,7 @@ namespace PokeApiNetAfterDark.Models
         /// Pokémon species.
         /// </summary>
         [JsonPropertyName("party_species")]
-        public NamedApiResource<PokemonSpecies> PartySpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> PartySpecies { get; set; } = null!;
 
         /// <summary>
         /// The player must have a Pokémon of this type in their party
@@ -164,7 +164,7 @@ namespace PokeApiNetAfterDark.Models
         /// Pokémon species to evolve into this Pokémon species.
         /// </summary>
         [JsonPropertyName("party_type")]
-        public NamedApiResource<Type> PartyType { get; set; }
+        public NamedApiResource<Type> PartyType { get; set; } = null!;
 
         /// <summary>
         /// The required relation between the Pokémon's Attack and Defense
@@ -178,13 +178,13 @@ namespace PokeApiNetAfterDark.Models
         /// The required time of day. Day or night.
         /// </summary>
         [JsonPropertyName("time_of_day")]
-        public string TimeOfDay { get; set; }
+        public string TimeOfDay { get; set; } = null!;
 
         /// <summary>
         /// Pokémon species for which this one must be traded.
         /// </summary>
         [JsonPropertyName("trade_species")]
-        public NamedApiResource<PokemonSpecies> TradeSpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> TradeSpecies { get; set; } = null!;
 
         /// <summary>
         /// Whether or not the 3DS needs to be turned upside-down as this
@@ -210,18 +210,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of pokemon species that result from this evolution
         /// trigger.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 }

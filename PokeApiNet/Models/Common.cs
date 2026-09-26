@@ -17,7 +17,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// Whether or not the games are published in this language.
@@ -28,18 +28,18 @@ namespace PokeApiNetAfterDark.Models
         /// The two-letter code of the country where this language
         /// is spoken. Note that it is not unique.
         /// </summary>
-        public string Iso639 { get; set; }
+        public string Iso639 { get; set; } = null!;
 
         /// <summary>
         /// The two-letter code of the language. Note that it is not
         /// unique.
         /// </summary>
-        public string Iso3166 { get; set; }
+        public string Iso3166 { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// Is endpoint case sensitive
@@ -62,12 +62,12 @@ namespace PokeApiNetAfterDark.Models
         /// The localized description for an API resource in a
         /// specific language.
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         /// <summary>
         /// The language this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -79,12 +79,12 @@ namespace PokeApiNetAfterDark.Models
         /// The localized effect text for an API resource in a
         /// specific language.
         /// </summary>
-        public string Effect { get; set; }
+        public string Effect { get; set; } = null!;
 
         /// <summary>
         /// The language this effect is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -109,7 +109,7 @@ namespace PokeApiNetAfterDark.Models
         /// encounter to occur.
         /// </summary>
         [JsonPropertyName("condition_values")]
-        public List<NamedApiResource<EncounterConditionValue>> ConditionValues { get; set; }
+        public List<NamedApiResource<EncounterConditionValue>> ConditionValues { get; set; } = null!;
 
         /// <summary>
         /// Percent chance that this encounter will occur.
@@ -119,7 +119,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The method by which this encounter happens.
         /// </summary>
-        public NamedApiResource<EncounterMethod> Method { get; set; }
+        public NamedApiResource<EncounterMethod> Method { get; set; } = null!;
     }
 
     /// <summary>
@@ -131,12 +131,12 @@ namespace PokeApiNetAfterDark.Models
         /// The localized flavor text for an API resource in a specific language.
         /// </summary>
         [JsonPropertyName("flavor_text")]
-        public string FlavorText { get; set; }
+        public string FlavorText { get; set; } = null!;
 
         /// <summary>
         /// The language this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -153,7 +153,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The generation relevent to this game index.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
     }
 
     /// <summary>
@@ -164,13 +164,13 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The machine that teaches a move from an item.
         /// </summary>
-        public ApiResource<Machine> Machine { get; set; }
+        public ApiResource<Machine> Machine { get; set; } = null!;
 
         /// <summary>
         /// The version group of this specific machine.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -181,12 +181,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The localized name for an API resource in a specific language.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The language this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -198,7 +198,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name of the referenced resource.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 
     /// <summary>
@@ -210,12 +210,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The final generation in which the Pokemon had the given data.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>
         /// The previous data.
         /// </summary>
-        protected TData Data { get; set; }
+        protected TData Data { get; set; } = default!;
     }
 
     /// <summary>
@@ -227,18 +227,18 @@ namespace PokeApiNetAfterDark.Models
         /// The localized effect text for an API resource in a
         /// specific language.
         /// </summary>
-        public string Effect { get; set; }
+        public string Effect { get; set; } = null!;
 
         /// <summary>
         /// The localized effect text in brief.
         /// </summary>
         [JsonPropertyName("short_effect")]
-        public string ShortEffect { get; set; }
+        public string ShortEffect { get; set; } = null!;
 
         /// <summary>
         /// The language this effect is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -249,7 +249,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The game version this encounter happens in.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
 
         /// <summary>
         /// The total percentage of all encounter potential.
@@ -261,7 +261,7 @@ namespace PokeApiNetAfterDark.Models
         /// A list of encounters and their specifics.
         /// </summary>
         [JsonPropertyName("encounter_details")]
-        public List<Encounter> EncounterDetails { get; set; }
+        public List<Encounter> EncounterDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -278,7 +278,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The version relevent to this game index.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
     }
 
     /// <summary>
@@ -289,17 +289,17 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The localized name for an API resource in a specific language.
         /// </summary>
-        public string Text { get; set; }
+        public string Text { get; set; } = null!;
 
         /// <summary>
         /// The language this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
 
         /// <summary>
         /// The version group which uses this flavor text.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 }

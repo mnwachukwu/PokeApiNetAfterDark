@@ -8,6 +8,6 @@
         /// <summary>
         /// Url of the referenced resource
         /// </summary>
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
     }
 }

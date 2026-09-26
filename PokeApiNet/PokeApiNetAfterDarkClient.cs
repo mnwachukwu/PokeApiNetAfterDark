@@ -23,6 +23,12 @@ namespace PokeApiNetAfterDark
         /// The default `User-Agent` header value used by instances of <see cref="PokeApiNetAfterDarkClient"/>.
         /// </summary>
         public static readonly ProductHeaderValue DefaultUserAgent = GetDefaultUserAgent();
+
+        /// <summary>
+        /// The folder holding a copy of PokéAPI's api-data, resolved against the working directory.
+        /// </summary>
+        public const string DataDirectoryName = "PokeAPI-Data";
+
         private readonly HttpClient _client;
         private readonly Uri _baseUri = new Uri("https://pokeapi.co/api/v2/");
         private readonly ResourceCacheManager _resourceCache = new ResourceCacheManager();
@@ -117,7 +123,13 @@ namespace PokeApiNetAfterDark
             string sanitizedApiParam = isApiEndpointCaseSensitive ? apiParam : apiParam.ToLowerInvariant();
             string apiEndpoint = GetApiEndpointString<T>();
 
-            return await GetAsync<T>($"{apiEndpoint}/{sanitizedApiParam}/", cancellationToken);
+            // A resource asked for by name or id is expected to exist, so a read that came back with
+            // nothing is a fault in the data directory rather than an answer. Saying so here beats
+            // handing back a null that surfaces as a NullReferenceException somewhere further on.
+            return await GetAsync<T>($"{apiEndpoint}/{sanitizedApiParam}/", cancellationToken)
+                   ?? throw new InvalidOperationException(
+                       $"No PokéAPI data found for {apiEndpoint}/{sanitizedApiParam}. " +
+                       $"Check that the {DataDirectoryName} directory sits beside the application and is complete.");
         }
 
         /// <summary>
@@ -142,7 +154,7 @@ namespace PokeApiNetAfterDark
                 throw new NotSupportedException($"Navigation url '{url}' is in an unexpected format");
             }
 
-            T resource = _resourceCache.Get<T>(id);
+            T? resource = _resourceCache.Get<T>(id);
             if (resource == null)
             {
                 resource = await GetResourcesWithParamsAsync<T>(resourceId, cancellationToken);
@@ -173,7 +185,7 @@ namespace PokeApiNetAfterDark
         public async Task<T> GetResourceAsync<T>(int id, CancellationToken cancellationToken)
             where T : ResourceBase
         {
-            T resource = _resourceCache.Get<T>(id);
+            T? resource = _resourceCache.Get<T>(id);
             if (resource == null)
             {
                 resource = await GetResourcesWithParamsAsync<T>(id.ToString(), cancellationToken);
@@ -214,7 +226,7 @@ namespace PokeApiNetAfterDark
 
             // Nidoran is interesting as the API wants 'nidoran-f' or 'nidoran-m'
 
-            T resource = _resourceCache.Get<T>(sanitizedName);
+            T? resource = _resourceCache.Get<T>(sanitizedName);
             if (resource == null)
             {
                 resource = await GetResourcesWithParamsAsync<T>(sanitizedName, cancellationToken);
@@ -382,7 +394,9 @@ namespace PokeApiNetAfterDark
             var resources = _resourceListCache.GetNamedResourceList<T>(url);
             if (resources == null)
             {
-                resources = await GetAsync<NamedApiResourceList<T>>(url, cancellationToken);
+                resources = await GetAsync<NamedApiResourceList<T>>(url, cancellationToken)
+                            ?? throw new InvalidOperationException(
+                                $"No PokéAPI data found for the page at {url}.");
                 _resourceListCache.Store(url, resources);
             }
 
@@ -452,7 +466,9 @@ namespace PokeApiNetAfterDark
             var resources = _resourceListCache.GetApiResourceList<T>(url);
             if (resources == null)
             {
-                resources = await GetAsync<ApiResourceList<T>>(url, cancellationToken);
+                resources = await GetAsync<ApiResourceList<T>>(url, cancellationToken)
+                            ?? throw new InvalidOperationException(
+                                $"No PokéAPI data found for the page at {url}.");
                 _resourceListCache.Store(url, resources);
             }
 
@@ -460,7 +476,9 @@ namespace PokeApiNetAfterDark
         }
 
         /// <summary>
-        /// Handles all outbound API requests to the PokeAPI server and deserializes the response
+        /// Reads one resource from the static API data and deserializes it. Null when the file could
+        /// not be read after <c>maxAttempts</c>, which the callers that expect a resource turn into an
+        /// exception; paging treats it as the end of the data.
         /// </summary>
         private static async Task<T?> GetAsync<T>(string url, CancellationToken cancellationToken)
         {
@@ -469,11 +487,13 @@ namespace PokeApiNetAfterDark
                 const int maxAttempts = 10;
                 const int delayMs = 50;
 
+                var path = Path.Combine(DataDirectoryName, url.Replace('/', Path.DirectorySeparatorChar), "index.json");
+
                 for (var attempt = 0; attempt < maxAttempts; attempt++)
                 {
                     try
                     {
-                        var data = File.ReadAllText($"PokeAPI-Data\\{url}\\index.json");
+                        var data = File.ReadAllText(path);
                         return JsonSerializer.Deserialize<T>(data,
                             new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower });
                     }
@@ -483,7 +503,6 @@ namespace PokeApiNetAfterDark
                     }
                 }
 
-                //Console.WriteLine($"Failed to load PokeAPI data after {maxAttempts} attempts: {filePath}");
                 return default;
             }, cancellationToken);
         }
@@ -499,7 +518,7 @@ namespace PokeApiNetAfterDark
 
         private static string AddPaginationParamsToUrl(string uri, int? limit = null, int? offset = null)
         {
-            var queryParameters = new Dictionary<string, string>();
+            var queryParameters = new Dictionary<string, string?>();
 
             // TODO consider to always set the limit parameter when not present to the default "20"
             // in order to have a single cached resource list for requests with explicit or implicit default limit

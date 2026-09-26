@@ -12,9 +12,10 @@
         public abstract int Id { get; set; }
 
         /// <summary>
-        /// The endpoint string for this resource
+        /// The endpoint string for this resource. Empty on the base: each resource shadows this with
+        /// its own endpoint, and the client reads the shadowing member by reflection.
         /// </summary>
-        public static string ApiEndpoint { get; }
+        public static string ApiEndpoint { get; } = string.Empty;
 
         /// <summary>
         /// Is endpoint case sensitive

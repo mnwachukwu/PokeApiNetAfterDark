@@ -18,17 +18,17 @@
         /// <summary>
         /// The TM or HM item that corresponds to this machine.
         /// </summary>
-        public NamedApiResource<Item> Item { get; set; }
+        public NamedApiResource<Item> Item { get; set; } = null!;
 
         /// <summary>
         /// The move that is taught by this machine.
         /// </summary>
-        public NamedApiResource<Move> Move { get; set; }
+        public NamedApiResource<Move> Move { get; set; } = null!;
 
         /// <summary>
         /// The version group that this machine applies to.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 }

@@ -20,47 +20,47 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of abilities that were introduced in this generation.
         /// </summary>
-        public List<NamedApiResource<Ability>> Abilities { get; set; }
+        public List<NamedApiResource<Ability>> Abilities { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The main region travelled in this generation.
         /// </summary>
         [JsonPropertyName("main_region")]
-        public NamedApiResource<Region> MainRegion { get; set; }
+        public NamedApiResource<Region> MainRegion { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that were introduced in this generation.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokemon species that were introduced in this
         /// generation.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
 
         /// <summary>
         /// A list of types that were introduced in this generation.
         /// </summary>
-        public List<NamedApiResource<Type>> Types { get; set; }
+        public List<NamedApiResource<Type>> Types { get; set; } = null!;
 
         /// <summary>
         /// A list of version groups that were introduced in this
         /// generation.
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; }
+        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; } = null!;
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// Whether or not this Pokédex originated in the main series of the video games.
@@ -92,29 +92,29 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The description of this resource listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon catalogued in this Pokédex and their indexes.
         /// </summary>
         [JsonPropertyName("pokemon_entries")]
-        public List<PokemonEntry> PokemonEntries { get; set; }
+        public List<PokemonEntry> PokemonEntries { get; set; } = null!;
 
         /// <summary>
         /// The region this Pokédex catalogues Pokémon for.
         /// </summary>
-        public NamedApiResource<Region> Region { get; set; }
+        public NamedApiResource<Region> Region { get; set; } = null!;
 
         /// <summary>
         /// A list of version groups this Pokédex is relevant to.
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; }
+        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; } = null!;
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ namespace PokeApiNetAfterDark.Models
         /// The Pokémon species being encountered.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -150,18 +150,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The version group this version belongs to.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -179,7 +179,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// Order for sorting. Almost by date of release,
@@ -190,28 +190,28 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The generation this version was introduced in.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>
         /// A list of methods in which Pokémon can learn moves in
         /// this version group.
         /// </summary>
         [JsonPropertyName("move_learn_methods")]
-        public List<NamedApiResource<MoveLearnMethod>> MoveLearnMethods { get; set; }
+        public List<NamedApiResource<MoveLearnMethod>> MoveLearnMethods { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokédexes introduces in this version group.
         /// </summary>
-        public List<NamedApiResource<Pokedex>> Pokedexes { get; set; }
+        public List<NamedApiResource<Pokedex>> Pokedexes { get; set; } = null!;
 
         /// <summary>
         /// A list of regions that can be visited in this version group.
         /// </summary>
-        public List<NamedApiResource<Region>> Regions { get; set; }
+        public List<NamedApiResource<Region>> Regions { get; set; } = null!;
 
         /// <summary>
         /// The versions this version group owns.
         /// </summary>
-        public List<NamedApiResource<Version>> Versions { get; set; }
+        public List<NamedApiResource<Version>> Versions { get; set; } = null!;
     }
 }

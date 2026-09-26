@@ -18,20 +18,20 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The berry flavor that correlates with this contest
         /// type.
         /// </summary>
         [JsonPropertyName("berry_flavor")]
-        public NamedApiResource<BerryFlavor> BerryFlavor { get; set; }
+        public NamedApiResource<BerryFlavor> BerryFlavor { get; set; } = null!;
 
         /// <summary>
         /// The name of this contest type listed in different
         /// languages.
         /// </summary>
-        public List<ContestName> Names { get; set; }
+        public List<ContestName> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -42,17 +42,17 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this contest.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The color associated with this contest's name.
         /// </summary>
-        public string Color { get; set; }
+        public string Color { get; set; } = null!;
 
         /// <summary>
         /// The language that this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -85,14 +85,14 @@ namespace PokeApiNetAfterDark.Models
         /// different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<Effects> EffectEntries { get; set; }
+        public List<Effects> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The flavor text of this contest effect listed in
         /// different languages.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<FlavorTexts> FlavorTextEntries { get; set; }
+        public List<FlavorTexts> FlavorTextEntries { get; set; } = null!;
     }
 
     /// <summary>
@@ -118,12 +118,12 @@ namespace PokeApiNetAfterDark.Models
         /// in different languages.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<FlavorTexts> FlavorTextEntries { get; set; }
+        public List<FlavorTexts> FlavorTextEntries { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that have the effect when used in
         /// super contests.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
     }
 }

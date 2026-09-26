@@ -20,7 +20,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The percent value of how likely this move is to be successful.
@@ -56,98 +56,98 @@ namespace PokeApiNetAfterDark.Models
         /// A detail of normal and super contest combos that require this move.
         /// </summary>
         [JsonPropertyName("contest_combos")]
-        public ContestComboSets ContestCombos { get; set; }
+        public ContestComboSets ContestCombos { get; set; } = null!;
 
         /// <summary>
         /// The type of appeal this move gives a Pokémon when used in a contest.
         /// </summary>
         [JsonPropertyName("contest_type")]
-        public NamedApiResource<ContestType> ContestType { get; set; }
+        public NamedApiResource<ContestType> ContestType { get; set; } = null!;
 
         /// <summary>
         /// The effect the move has when used in a contest.
         /// </summary>
         [JsonPropertyName("contest_effect")]
-        public ApiResource<ContestEffect> ContestEffect { get; set; }
+        public ApiResource<ContestEffect> ContestEffect { get; set; } = null!;
 
         /// <summary>
         /// The type of damage the move inflicts on the target, e.g. physical.
         /// </summary>
         [JsonPropertyName("damage_class")]
-        public NamedApiResource<MoveDamageClass> DamageClass { get; set; }
+        public NamedApiResource<MoveDamageClass> DamageClass { get; set; } = null!;
 
         /// <summary>
         /// The effect of this move listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<VerboseEffect> EffectEntries { get; set; }
+        public List<VerboseEffect> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The list of previous effects this move has had across version
         /// groups of the games.
         /// </summary>
         [JsonPropertyName("effect_changes")]
-        public List<AbilityEffectChange> EffectChanges { get; set; }
+        public List<AbilityEffectChange> EffectChanges { get; set; } = null!;
 
         /// <summary>
         /// The flavor text of this move listed in different languages.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<MoveFlavorText> FlavorTextEntries { get; set; }
+        public List<MoveFlavorText> FlavorTextEntries { get; set; } = null!;
 
         /// <summary>
         /// The generation in which this move was introduced.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>The pokemon that learn this move.</summary>
         [JsonPropertyName("learned_by_pokemon")]
-        public List<NamedApiResource<Pokemon>> LearnedByPokemon { get; set; }
+        public List<NamedApiResource<Pokemon>> LearnedByPokemon { get; set; } = null!;
 
         /// <summary>
         /// A list of the machines that teach this move.
         /// </summary>
-        public List<MachineVersionDetail> Machines { get; set; }
+        public List<MachineVersionDetail> Machines { get; set; } = null!;
 
         /// <summary>
         /// Metadata about this move
         /// </summary>
-        public MoveMetaData Meta { get; set; }
+        public MoveMetaData Meta { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of move resource value changes across version groups
         /// of the game.
         /// </summary>
         [JsonPropertyName("past_values")]
-        public List<PastMoveStatValues> PastValues { get; set; }
+        public List<PastMoveStatValues> PastValues { get; set; } = null!;
 
         /// <summary>
         /// A list of stats this moves effects and how much it
         /// effects them.
         /// </summary>
         [JsonPropertyName("stat_changes")]
-        public List<MoveStatChange> StatChanges { get; set; }
+        public List<MoveStatChange> StatChanges { get; set; } = null!;
 
         /// <summary>
         /// The effect the move has when used in a super contest.
         /// </summary>
         [JsonPropertyName("super_contest_effect")]
-        public ApiResource<SuperContestEffect> SuperContestEffect { get; set; }
+        public ApiResource<SuperContestEffect> SuperContestEffect { get; set; } = null!;
 
         /// <summary>
         /// The type of target that will receive the effects of the attack.
         /// </summary>
-        public NamedApiResource<MoveTarget> Target { get; set; }
+        public NamedApiResource<MoveTarget> Target { get; set; } = null!;
 
         /// <summary>
         /// The elemental type of this move.
         /// </summary>
-        public NamedApiResource<Type> Type { get; set; }
+        public NamedApiResource<Type> Type { get; set; } = null!;
     }
 
     /// <summary>
@@ -159,13 +159,13 @@ namespace PokeApiNetAfterDark.Models
         /// A detail of moves this move can be used before or after,
         /// granting additional appeal points in contests.
         /// </summary>
-        public ContestComboDetail Normal { get; set; }
+        public ContestComboDetail Normal { get; set; } = null!;
 
         /// <summary>
         /// A detail of moves this move can be used before or after,
         /// granting additional appeal points in super contests.
         /// </summary>
-        public ContestComboDetail Super { get; set; }
+        public ContestComboDetail Super { get; set; } = null!;
     }
 
     /// <summary>
@@ -177,13 +177,13 @@ namespace PokeApiNetAfterDark.Models
         /// A list of moves to use before this move.
         /// </summary>
         [JsonPropertyName("use_before")]
-        public List<NamedApiResource<Move>> UseBefore { get; set; }
+        public List<NamedApiResource<Move>> UseBefore { get; set; } = null!;
 
         /// <summary>
         /// A list of moves to use after this move.
         /// </summary>
         [JsonPropertyName("use_after")]
-        public List<NamedApiResource<Move>> UseAfter { get; set; }
+        public List<NamedApiResource<Move>> UseAfter { get; set; } = null!;
     }
 
     /// <summary>
@@ -196,18 +196,18 @@ namespace PokeApiNetAfterDark.Models
         /// specific language.
         /// </summary>
         [JsonPropertyName("flavor_text")]
-        public string FlavorText { get; set; }
+        public string FlavorText { get; set; } = null!;
 
         /// <summary>
         /// The language this name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
 
         /// <summary>
         /// The version group that uses this flavor text.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -218,13 +218,13 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The status ailment this move inflicts on its target.
         /// </summary>
-        public NamedApiResource<MoveAilment> Ailment { get; set; }
+        public NamedApiResource<MoveAilment> Ailment { get; set; } = null!;
 
         /// <summary>
         /// The category of move this move falls under, e.g. damage or
         /// ailment.
         /// </summary>
-        public NamedApiResource<MoveCategory> Category { get; set; }
+        public NamedApiResource<MoveCategory> Category { get; set; } = null!;
 
         /// <summary>
         /// The minimum number of times this move hits. Null if it always
@@ -305,7 +305,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The stat being affected.
         /// </summary>
-        public NamedApiResource<Stat> Stat { get; set; }
+        public NamedApiResource<Stat> Stat { get; set; } = null!;
     }
 
     /// <summary>
@@ -341,18 +341,18 @@ namespace PokeApiNetAfterDark.Models
         /// The effect of this move listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<VerboseEffect> EffectEntries { get; set; }
+        public List<VerboseEffect> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The elemental type of this move.
         /// </summary>
-        public NamedApiResource<Type> Type { get; set; }
+        public NamedApiResource<Type> Type { get; set; } = null!;
 
         /// <summary>
         /// The version group in which these move stat values were in effect.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -370,17 +370,17 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that cause this ailment.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -398,12 +398,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -421,17 +421,17 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that fall into this category.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
 
         /// <summary>
         /// The description of this resource listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
     }
 
     /// <summary>
@@ -449,22 +449,22 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that fall into this damage public class.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
 
         /// <summary>
         /// The description of this resource listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -482,23 +482,23 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The description of this resource listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of version groups where moves can be learned through this method.
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; }
+        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; } = null!;
     }
 
     /// <summary>
@@ -517,21 +517,21 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The description of this resource listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that that are directed at this target.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 }

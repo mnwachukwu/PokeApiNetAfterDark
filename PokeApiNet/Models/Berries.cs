@@ -18,7 +18,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// Time it takes the tree to grow one stage, in hours.
@@ -65,27 +65,27 @@ namespace PokeApiNetAfterDark.Models
         /// The firmness of this berry, used in making Pokeblocks
         /// or Poffins.
         /// </summary>
-        public NamedApiResource<BerryFirmness> Firmness { get; set; }
+        public NamedApiResource<BerryFirmness> Firmness { get; set; } = null!;
 
         /// <summary>
         /// A list of references to each flavor a berry can have
         /// and the potency of each of those flavors in regards
         /// to this berry.
         /// </summary>
-        public List<BerryFlavorMap> Flavors { get; set; }
+        public List<BerryFlavorMap> Flavors { get; set; } = null!;
 
         /// <summary>
         /// Berries are actually items. This is a reference to
         /// the item specific data for this berry.
         /// </summary>
-        public NamedApiResource<Item> Item { get; set; }
+        public NamedApiResource<Item> Item { get; set; } = null!;
 
         /// <summary>
         /// The type inherited by "Natural Gift" when used with
         /// this Berry.
         /// </summary>
         [JsonPropertyName("natural_gift_type")]
-        public NamedApiResource<Type> NaturalGiftType { get; set; }
+        public NamedApiResource<Type> NaturalGiftType { get; set; } = null!;
     }
 
     /// <summary>
@@ -102,7 +102,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The referenced berry flavor.
         /// </summary>
-        public NamedApiResource<BerryFlavor> Flavor { get; set; }
+        public NamedApiResource<BerryFlavor> Flavor { get; set; } = null!;
     }
 
     /// <summary>
@@ -120,18 +120,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of berries with this firmness.
         /// </summary>
-        public List<NamedApiResource<Berry>> Berries { get; set; }
+        public List<NamedApiResource<Berry>> Berries { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different
         /// languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -150,24 +150,24 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of berries with this firmness.
         /// </summary>
-        public List<FlavorBerryMap> Berries { get; set; }
+        public List<FlavorBerryMap> Berries { get; set; } = null!;
 
         /// <summary>
         /// The contest type that correlates with this berry
         /// flavor.
         /// </summary>
         [JsonPropertyName("contest_type")]
-        public NamedApiResource<ContestType> ContestType { get; set; }
+        public NamedApiResource<ContestType> ContestType { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -184,6 +184,6 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The berry with the referenced flavor.
         /// </summary>
-        public NamedApiResource<Berry> Berry { get; set; }
+        public NamedApiResource<Berry> Berry { get; set; } = null!;
     }
 }

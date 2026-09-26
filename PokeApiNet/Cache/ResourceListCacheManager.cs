@@ -50,7 +50,7 @@ namespace PokeApiNetAfterDark.Cache
         /// <returns>
         /// A <see cref="ApiResourceList{T}"/> in case of a cache hit; null otherwise.
         /// </returns>
-        public ApiResourceList<T> GetApiResourceList<T>(string url) where T : ApiResource
+        public ApiResourceList<T>? GetApiResourceList<T>(string url) where T : ApiResource
         {
             System.Type resourceType = typeof(T);
             return listCaches[resourceType].Get<T>(url) as ApiResourceList<T>;
@@ -64,7 +64,7 @@ namespace PokeApiNetAfterDark.Cache
         /// <returns>
         /// A <see cref="NamedApiResourceList{T}"/> in case of a cache hit; null otherwise.
         /// </returns>
-        public NamedApiResourceList<T> GetNamedResourceList<T>(string url) where T : NamedApiResource
+        public NamedApiResourceList<T>? GetNamedResourceList<T>(string url) where T : NamedApiResource
         {
             System.Type resourceType = typeof(T);
             return listCaches[resourceType].Get<T>(url) as NamedApiResourceList<T>;
@@ -132,8 +132,8 @@ namespace PokeApiNetAfterDark.Cache
             /// </summary>
             /// <param name="url">The url of the resource list</param>
             /// <typeparam name="T">The type of objects in the resource list</typeparam>
-            /// <returns>The resource list from cache</returns>
-            public ResourceList<T> Get<T>(string url) where T : ResourceBase =>
+            /// <returns>The resource list from cache, or null on a miss</returns>
+            public ResourceList<T>? Get<T>(string url) where T : ResourceBase =>
                 _urlCache.Get<ResourceList<T>>(url);
 
             /// <summary>

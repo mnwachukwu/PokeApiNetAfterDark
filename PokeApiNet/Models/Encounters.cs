@@ -18,7 +18,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A good value for sorting.
@@ -29,7 +29,7 @@ namespace PokeApiNetAfterDark.Models
         /// The name of this resource listed in different
         /// languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -48,18 +48,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different
         /// languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of possible values for this encounter condition.
         /// </summary>
-        public List<NamedApiResource<EncounterConditionValue>> Values { get; set; }
+        public List<NamedApiResource<EncounterConditionValue>> Values { get; set; } = null!;
     }
 
     /// <summary>
@@ -78,18 +78,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The condition this encounter condition value pertains
         /// to.
         /// </summary>
-        public NamedApiResource<EncounterCondition> Condition { get; set; }
+        public NamedApiResource<EncounterCondition> Condition { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different
         /// languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 }

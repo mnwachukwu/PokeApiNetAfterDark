@@ -36,7 +36,7 @@ namespace PokeApiNetAfterDark.Models
         /// A list of un-named API resources.
         /// </summary>
         [JsonPropertyName("results")]
-        public List<ApiResource<T>> Results { get; set; }
+        public List<ApiResource<T>> Results { get; set; } = null!;
     }
 
     /// <summary>
@@ -49,6 +49,6 @@ namespace PokeApiNetAfterDark.Models
         /// A list of named API resources.
         /// </summary>
         [JsonPropertyName("results")]
-        public List<NamedApiResource<T>> Results { get; set; }
+        public List<NamedApiResource<T>> Results { get; set; } = null!;
     }
 }

@@ -105,14 +105,14 @@
             Gets a resource from cache by id
             </summary>
             <param name="id">The id of the resource</param>
-            <returns>The object from cache with the matching id</returns>
+            <returns>The object from cache with the matching id, or null on a miss</returns>
         </member>
         <member name="M:PokeApiNetAfterDark.Cache.ResourceCacheManager.ResourceCache.Get(System.String)">
             <summary>
             Gets a resource from cache by name
             </summary>
             <param name="name">The name of the resource</param>
-            <returns>The object from cache with the matching name</returns>
+            <returns>The object from cache with the matching name, or null on a miss</returns>
         </member>
         <member name="M:PokeApiNetAfterDark.Cache.ResourceCacheManager.ResourceCache.Dispose">
             <summary>
@@ -195,7 +195,7 @@
             </summary>
             <param name="url">The url of the resource list</param>
             <typeparam name="T">The type of objects in the resource list</typeparam>
-            <returns>The resource list from cache</returns>
+            <returns>The resource list from cache, or null on a miss</returns>
         </member>
         <member name="M:PokeApiNetAfterDark.Cache.ResourceListCacheManager.ListCache.Dispose">
             <summary>
@@ -3353,7 +3353,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.DiamondPearlSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.DiamondPearlSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.HeartGoldSoulSilverSprites">
             <summary>
             Pókemon Heartgold/Soulsilver sprites
@@ -3394,7 +3398,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.HeartGoldSoulSilverSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.HeartGoldSoulSilverSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.PlatinumSprites">
             <summary>
             Pókemon Platinum sprites
@@ -3435,7 +3443,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.PlatinumSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationIVSprites.PlatinumSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites">
             <summary>
             Pókemon sprites for Generation V
@@ -3491,7 +3503,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites.BlackWhiteSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites.BlackWhiteSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites.BlackWhiteSprites.AnimatedSprites">
             <summary>
             The animated depiction of this Pokémon from the back in battle.
@@ -3532,7 +3548,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites.BlackWhiteSprites.AnimatedSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVSprites.BlackWhiteSprites.AnimatedSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites">
             <summary>
             Pókemon sprites for Generation VI
@@ -3568,7 +3588,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites.OmegaRubyAlphaSapphireSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites.OmegaRubyAlphaSapphireSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites.XYSprites">
             <summary>
             Pókemon X/Y sprites
@@ -3589,7 +3613,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites.XYSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVISprites.XYSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVIISprites">
             <summary>
             Pókemon sprites for Generation VII
@@ -3640,7 +3668,11 @@
             The default depiction of this Pokémon from the front shiny in battle.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVIISprites.UltraSunUltraMoonSprites.FrontShinyFemale" -->
+        <member name="P:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVIISprites.UltraSunUltraMoonSprites.FrontShinyFemale">
+            <summary>
+            The default depiction of this Pokémon from the front female shiny in battle.
+            </summary>
+        </member>
         <member name="T:PokeApiNetAfterDark.Models.PokemonSprites.VersionSprites.GenerationVIIISprites">
             <summary>
             Pókemon sprites for Generation VIII
@@ -4345,7 +4377,8 @@
         </member>
         <member name="P:PokeApiNetAfterDark.Models.ResourceBase.ApiEndpoint">
             <summary>
-            The endpoint string for this resource
+            The endpoint string for this resource. Empty on the base: each resource shadows this with
+            its own endpoint, and the client reads the shadowing member by reflection.
             </summary>
         </member>
         <member name="P:PokeApiNetAfterDark.Models.ResourceBase.IsApiEndpointCaseSensitive">
@@ -4428,6 +4461,11 @@
         <member name="F:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DefaultUserAgent">
             <summary>
             The default `User-Agent` header value used by instances of <see cref="T:PokeApiNetAfterDark.PokeApiNetAfterDarkClient"/>.
+            </summary>
+        </member>
+        <member name="F:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DataDirectoryName">
+            <summary>
+            The folder holding a copy of PokéAPI's api-data, resolved against the working directory.
             </summary>
         </member>
         <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.#ctor">
@@ -4639,7 +4677,9 @@
         </member>
         <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.GetAsync``1(System.String,System.Threading.CancellationToken)">
             <summary>
-            Handles all outbound API requests to the PokeAPI server and deserializes the response
+            Reads one resource from the static API data and deserializes it. Null when the file could
+            not be read after <c>maxAttempts</c>, which the callers that expect a resource turn into an
+            exception; paging treats it as the end of the data.
             </summary>
         </member>
         <member name="M:PokeApiNetAfterDark.PokeApiNetAfterDarkClient.DeserializeStream``1(System.IO.Stream)">

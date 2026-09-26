@@ -18,28 +18,28 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The region this location can be found in.
         /// </summary>
-        public NamedApiResource<Region> Region { get; set; }
+        public NamedApiResource<Region> Region { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of game indices relevent to this location by generation.
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<GenerationGameIndex> GameIndices { get; set; }
+        public List<GenerationGameIndex> GameIndices { get; set; } = null!;
 
         /// <summary>
         /// Areas that can be found within this location
         /// </summary>
-        public List<NamedApiResource<LocationArea>> Areas { get; set; }
+        public List<NamedApiResource<LocationArea>> Areas { get; set; } = null!;
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The internal id of an API resource within game data.
@@ -72,24 +72,24 @@ namespace PokeApiNetAfterDark.Models
         /// of the game.
         /// </summary>
         [JsonPropertyName("encounter_method_rates")]
-        public List<EncounterMethodRate> EncounterMethodRates { get; set; }
+        public List<EncounterMethodRate> EncounterMethodRates { get; set; } = null!;
 
         /// <summary>
         /// The region this location can be found in.
         /// </summary>
-        public NamedApiResource<Location> Location { get; set; }
+        public NamedApiResource<Location> Location { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon that can be encountered in this area along with
         /// version specific details about the encounter.
         /// </summary>
         [JsonPropertyName("pokemon_encounters")]
-        public List<PokemonEncounter> PokemonEncounters { get; set; }
+        public List<PokemonEncounter> PokemonEncounters { get; set; } = null!;
     }
 
     /// <summary>
@@ -101,13 +101,13 @@ namespace PokeApiNetAfterDark.Models
         /// The method in which Pokémon may be encountered in an area.
         /// </summary>
         [JsonPropertyName("encounter_method")]
-        public NamedApiResource<EncounterMethod> EncounterMethod { get; set; }
+        public NamedApiResource<EncounterMethod> EncounterMethod { get; set; } = null!;
 
         /// <summary>
         /// The chance of the encounter to occur on a version of the game.
         /// </summary>
         [JsonPropertyName("version_details")]
-        public List<EncounterVersionDetails> VersionDetails { get; set; }
+        public List<EncounterVersionDetails> VersionDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -124,7 +124,7 @@ namespace PokeApiNetAfterDark.Models
         /// The version of the game in which the encounter can occur with
         /// the given chance.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
     }
 
     /// <summary>
@@ -135,14 +135,14 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokémon being encountered.
         /// </summary>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
 
         /// <summary>
         /// A list of versions and encounters with Pokémon that might happen
         /// in the referenced location area.
         /// </summary>
         [JsonPropertyName("version_details")]
-        public List<VersionEncounterDetail> VersionDetails { get; set; }
+        public List<VersionEncounterDetail> VersionDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -161,19 +161,19 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon encountered in thi pal park area along with
         /// details.
         /// </summary>
         [JsonPropertyName("pokemon_encounters")]
-        public List<PalParkEncounterSpecies> PokemonEncounters { get; set; }
+        public List<PalParkEncounterSpecies> PokemonEncounters { get; set; } = null!;
     }
 
     /// <summary>
@@ -197,7 +197,7 @@ namespace PokeApiNetAfterDark.Models
         /// The Pokémon species being encountered.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -217,33 +217,33 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// A list of locations that can be found in this region.
         /// </summary>
-        public List<NamedApiResource<Location>> Locations { get; set; }
+        public List<NamedApiResource<Location>> Locations { get; set; } = null!;
 
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The generation this region was introduced in.
         /// </summary>
         [JsonPropertyName("main_generation")]
-        public NamedApiResource<Generation> MainGeneration { get; set; }
+        public NamedApiResource<Generation> MainGeneration { get; set; } = null!;
 
         /// <summary>
         /// A list of pokédexes that catalogue Pokémon in this region.
         /// </summary>
-        public List<NamedApiResource<Pokedex>> Pokedexes { get; set; }
+        public List<NamedApiResource<Pokedex>> Pokedexes { get; set; } = null!;
 
         /// <summary>
         /// A list of version groups where this region can be visited.
         /// </summary>
         [JsonPropertyName("version_groups")]
-        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; }
+        public List<NamedApiResource<VersionGroup>> VersionGroups { get; set; } = null!;
     }
 }

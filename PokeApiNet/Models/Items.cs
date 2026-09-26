@@ -20,7 +20,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The price of this item in stores.
@@ -37,62 +37,62 @@ namespace PokeApiNetAfterDark.Models
         /// The effect of the move Fling when used with this item.
         /// </summary>
         [JsonPropertyName("fling_effect")]
-        public NamedApiResource<ItemFlingEffect> FlingEffect { get; set; }
+        public NamedApiResource<ItemFlingEffect> FlingEffect { get; set; } = null!;
 
         /// <summary>
         /// A list of attributes this item has.
         /// </summary>
-        public List<NamedApiResource<ItemAttribute>> Attributes { get; set; }
+        public List<NamedApiResource<ItemAttribute>> Attributes { get; set; } = null!;
 
         /// <summary>
         /// The category of items this item falls into.
         /// </summary>
-        public NamedApiResource<ItemCategory> Category { get; set; }
+        public NamedApiResource<ItemCategory> Category { get; set; } = null!;
 
         /// <summary>
         /// The effect of this ability listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<VerboseEffect> EffectEntries { get; set; }
+        public List<VerboseEffect> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The flavor text of this ability listed in different languages.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<VersionGroupFlavorText> FlavorGroupTextEntries { get; set; }
+        public List<VersionGroupFlavorText> FlavorGroupTextEntries { get; set; } = null!;
 
         /// <summary>
         /// A list of game indices relevent to this item by generation.
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<GenerationGameIndex> GameIndices { get; set; }
+        public List<GenerationGameIndex> GameIndices { get; set; } = null!;
 
         /// <summary>
         /// The name of this item listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A set of sprites used to depict this item in the game.
         /// </summary>
-        public ItemSprites Sprites { get; set; }
+        public ItemSprites Sprites { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon that might be found in the wild holding this item.
         /// </summary>
         [JsonPropertyName("held_by_pokemon")]
-        public List<ItemHolderPokemon> HeldByPokemon { get; set; }
+        public List<ItemHolderPokemon> HeldByPokemon { get; set; } = null!;
 
         /// <summary>
         /// An evolution chain this item requires to produce a baby during mating.
         /// </summary>
         [JsonPropertyName("baby_trigger_for")]
-        public ApiResource<EvolutionChain> BabyTriggerFor { get; set; }
+        public ApiResource<EvolutionChain> BabyTriggerFor { get; set; } = null!;
 
         /// <summary>
         /// A list of the machines related to this item.
         /// </summary>
-        public List<MachineVersionDetail> Machines { get; set; }
+        public List<MachineVersionDetail> Machines { get; set; } = null!;
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The default description of this item.
         /// </summary>
-        public string Default { get; set; }
+        public string Default { get; set; } = null!;
     }
 
     /// <summary>
@@ -115,13 +115,13 @@ namespace PokeApiNetAfterDark.Models
         /// The Pokémon that holds this item.
         /// </summary>
         /// <remarks>The docs lie; this is not a string</remarks>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
 
         /// <summary>
         /// The details for the version that this item is held in by the Pokémon.
         /// </summary>
         [JsonPropertyName("version_details")]
-        public List<ItemHolderPokemonVersionDetail> VersionDetails { get; set; }
+        public List<ItemHolderPokemonVersionDetail> VersionDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The version that this item is held in by the Pokémon.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
     }
 
     /// <summary>
@@ -156,22 +156,22 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of items that have this attribute.
         /// </summary>
-        public List<NamedApiResource<Item>> Items { get; set; }
+        public List<NamedApiResource<Item>> Items { get; set; } = null!;
 
         /// <summary>
         /// The name of this item attribute listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The description of this item attribute listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
     }
 
     /// <summary>
@@ -189,22 +189,22 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of items that are a part of this category.
         /// </summary>
-        public List<NamedApiResource<Item>> Items { get; set; }
+        public List<NamedApiResource<Item>> Items { get; set; } = null!;
 
         /// <summary>
         /// The name of this item category listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The pocket items in this category would be put in.
         /// </summary>
-        public NamedApiResource<ItemPocket> Pocket { get; set; }
+        public NamedApiResource<ItemPocket> Pocket { get; set; } = null!;
     }
 
     /// <summary>
@@ -222,18 +222,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The result of this fling effect listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<Effects> EffectEntries { get; set; }
+        public List<Effects> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// A list of items that have this fling effect.
         /// </summary>
-        public List<NamedApiResource<Item>> Items { get; set; }
+        public List<NamedApiResource<Item>> Items { get; set; } = null!;
     }
 
     /// <summary>
@@ -251,16 +251,16 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of item categories that are relevant to this item pocket.
         /// </summary>
-        public List<NamedApiResource<ItemCategory>> Categories { get; set; }
+        public List<NamedApiResource<ItemCategory>> Categories { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 }

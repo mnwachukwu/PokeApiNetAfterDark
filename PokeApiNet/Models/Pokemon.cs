@@ -19,7 +19,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// Whether or not this ability originated in the main series of the video games.
@@ -30,35 +30,35 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The generation this ability originated in.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The effect of this ability listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<VerboseEffect> EffectEntries { get; set; }
+        public List<VerboseEffect> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The list of previous effects this ability has had across version groups.
         /// </summary>
         [JsonPropertyName("effect_changes")]
-        public List<AbilityEffectChange> EffectChanges { get; set; }
+        public List<AbilityEffectChange> EffectChanges { get; set; } = null!;
 
         /// <summary>
         /// The flavor text of this ability listed in different languages.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<AbilityFlavorText> FlavorTextEntries { get; set; }
+        public List<AbilityFlavorText> FlavorTextEntries { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon that could potentially have this ability.
         /// </summary>
-        public List<AbilityPokemon> Pokemon { get; set; }
+        public List<AbilityPokemon> Pokemon { get; set; } = null!;
     }
 
     /// <summary>
@@ -70,13 +70,13 @@ namespace PokeApiNetAfterDark.Models
         /// The previous effect of this ability listed in different languages.
         /// </summary>
         [JsonPropertyName("effect_entries")]
-        public List<Effects> EffectEntries { get; set; }
+        public List<Effects> EffectEntries { get; set; } = null!;
 
         /// <summary>
         /// The version group in which the previous effect of this ability originated.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -88,18 +88,18 @@ namespace PokeApiNetAfterDark.Models
         /// The localized name for an API resource in a specific language.
         /// </summary>
         [JsonPropertyName("flavor_text")]
-        public string FlavorText { get; set; }
+        public string FlavorText { get; set; } = null!;
 
         /// <summary>
         /// The language this text resource is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
 
         /// <summary>
         /// The version group that uses this flavor text.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokémon this ability could belong to.
         /// </summary>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
     }
 
     /// <summary>
@@ -151,18 +151,18 @@ namespace PokeApiNetAfterDark.Models
         /// a Pokémon recieving this characteristic when divided by 5.
         /// </summary>
         [JsonPropertyName("possible_values")]
-        public List<int> PossibleValues { get; set; }
+        public List<int> PossibleValues { get; set; } = null!;
 
         /// <summary>
         /// The highest stat of this characteristic.
         /// </summary>
         [JsonPropertyName("highest_stat")]
-        public NamedApiResource<Stat> HighestStat { get; set; }
+        public NamedApiResource<Stat> HighestStat { get; set; } = null!;
 
         /// <summary>
         /// The descriptions of this characteristic listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
     }
 
     /// <summary>
@@ -181,18 +181,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         ///	The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of all Pokémon species that are members of this egg group.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -212,21 +212,21 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon species that can be this gender and how likely it
         /// is that they will be.
         /// </summary>
         [JsonPropertyName("pokemon_species_details")]
-        public List<PokemonSpeciesGender> PokemonSpeciesDetails { get; set; }
+        public List<PokemonSpeciesGender> PokemonSpeciesDetails { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon species that required this gender in order for a
         /// Pokémon to evolve into them.
         /// </summary>
         [JsonPropertyName("required_for_evolution")]
-        public List<NamedApiResource<PokemonSpecies>> RequiredForEvolution { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> RequiredForEvolution { get; set; } = null!;
     }
 
     /// <summary>
@@ -244,7 +244,7 @@ namespace PokeApiNetAfterDark.Models
         /// A Pokémon species that can be the referenced gender.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -262,30 +262,30 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The formula used to calculate the rate at which the Pokémon species
         /// gains level.
         /// </summary>
-        public string Formula { get; set; }
+        public string Formula { get; set; } = null!;
 
         /// <summary>
         /// The descriptions of this characteristic listed in different languages.
         /// </summary>
-        public List<Descriptions> Descriptions { get; set; }
+        public List<Descriptions> Descriptions { get; set; } = null!;
 
         /// <summary>
         /// A list of levels and the amount of experienced needed to atain them
         /// based on this growth rate.
         /// </summary>
-        public List<GrowthRateExperienceLevel> Levels { get; set; }
+        public List<GrowthRateExperienceLevel> Levels { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokémon species that gain levels at this growth rate.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -319,50 +319,50 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The stat decreased by 10% in Pokémon with this nature.
         /// </summary>
         [JsonPropertyName("decreased_stat")]
-        public NamedApiResource<Stat> DecreasedStat { get; set; }
+        public NamedApiResource<Stat> DecreasedStat { get; set; } = null!;
 
         /// <summary>
         /// The stat increased by 10% in Pokémon with this nature.
         /// </summary>
         [JsonPropertyName("increased_stat")]
-        public NamedApiResource<Stat> IncreasedStat { get; set; }
+        public NamedApiResource<Stat> IncreasedStat { get; set; } = null!;
 
         /// <summary>
         /// The flavor hated by Pokémon with this nature.
         /// </summary>
         [JsonPropertyName("hates_flavor")]
-        public NamedApiResource<BerryFlavor> HatesFlavor { get; set; }
+        public NamedApiResource<BerryFlavor> HatesFlavor { get; set; } = null!;
 
         /// <summary>
         /// The flavor liked by Pokémon with this nature.
         /// </summary>
         [JsonPropertyName("likes_flavor")]
-        public NamedApiResource<BerryFlavor> LikesFlavor { get; set; }
+        public NamedApiResource<BerryFlavor> LikesFlavor { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokéathlon stats this nature effects and how much it
         /// effects them.
         /// </summary>
         [JsonPropertyName("pokeathlon_stat_changes")]
-        public List<NatureStatChange> PokeathlonStatChanges { get; set; }
+        public List<NatureStatChange> PokeathlonStatChanges { get; set; } = null!;
 
         /// <summary>
         /// A list of battle styles and how likely a Pokémon with this nature is
         /// to use them in the Battle Palace or Battle Tent.
         /// </summary>
         [JsonPropertyName("move_battle_style_preferences")]
-        public List<MoveBattleStylePreference> MoveBattleStylePreferences { get; set; }
+        public List<MoveBattleStylePreference> MoveBattleStylePreferences { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -380,7 +380,7 @@ namespace PokeApiNetAfterDark.Models
         /// The stat being affected.
         /// </summary>
         [JsonPropertyName("pokeathlon_stat")]
-        public NamedApiResource<PokeathlonStat> PokeathlonStat { get; set; }
+        public NamedApiResource<PokeathlonStat> PokeathlonStat { get; set; } = null!;
     }
 
     /// <summary>
@@ -404,7 +404,7 @@ namespace PokeApiNetAfterDark.Models
         /// The move battle style.
         /// </summary>
         [JsonPropertyName("move_battle_style")]
-        public NamedApiResource<MoveBattleStyle> MoveBattleStyle { get; set; }
+        public NamedApiResource<MoveBattleStyle> MoveBattleStyle { get; set; } = null!;
     }
 
     /// <summary>
@@ -424,19 +424,19 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A detail of natures which affect this Pokéathlon stat positively
         /// or negatively.
         /// </summary>
         [JsonPropertyName("affecting_natures")]
-        public NaturePokeathlonStatAffectSets AffectingNatures { get; set; }
+        public NaturePokeathlonStatAffectSets AffectingNatures { get; set; } = null!;
     }
 
     /// <summary>
@@ -447,12 +447,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// A list of natures and how they change the referenced Pokéathlon stat.
         /// </summary>
-        public List<NaturePokeathlonStatAffect> Increase { get; set; }
+        public List<NaturePokeathlonStatAffect> Increase { get; set; } = null!;
 
         /// <summary>
         /// A list of natures and how they change the referenced Pokéathlon stat.
         /// </summary>
-        public List<NaturePokeathlonStatAffect> Decrease{ get; set; }
+        public List<NaturePokeathlonStatAffect> Decrease{ get; set; } = null!;
     }
 
     /// <summary>
@@ -469,7 +469,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The nature causing the change.
         /// </summary>
-        public NamedApiResource<Nature> Nature { get; set; }
+        public NamedApiResource<Nature> Nature { get; set; } = null!;
     }
 
     /// <summary>
@@ -491,7 +491,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The base experience gained for defeating this Pokémon.
@@ -524,63 +524,63 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// A list of abilities this Pokémon could potentially have.
         /// </summary>
-        public List<PokemonAbility> Abilities { get; set; }
+        public List<PokemonAbility> Abilities { get; set; } = null!;
 
         /// <summary>
         /// A list of forms this Pokémon can take on.
         /// </summary>
-        public List<NamedApiResource<PokemonForm>> Forms { get; set; }
+        public List<NamedApiResource<PokemonForm>> Forms { get; set; } = null!;
 
         /// <summary>
         /// A list of game indices relevent to Pokémon item by generation.
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<VersionGameIndex> GameIndicies { get; set; }
+        public List<VersionGameIndex> GameIndicies { get; set; } = null!;
 
         /// <summary>
         /// A list of items this Pokémon may be holding when encountered.
         /// </summary>
         [JsonPropertyName("held_items")]
-        public List<PokemonHeldItem> HeldItems { get; set; }
+        public List<PokemonHeldItem> HeldItems { get; set; } = null!;
 
         /// <summary>
         /// A link to a list of location areas, as well as encounter
         /// details pertaining to specific versions.
         /// </summary>
         [JsonPropertyName("location_area_encounters")]
-        public string LocationAreaEncounters { get; set; }
+        public string LocationAreaEncounters { get; set; } = null!;
 
         /// <summary>
         /// A list of moves along with learn methods and level
         /// details pertaining to specific version groups.
         /// </summary>
-        public List<PokemonMove> Moves { get; set; }
+        public List<PokemonMove> Moves { get; set; } = null!;
 
         /// <summary>
         /// Type data in previous generations for this Pokemon.
         /// </summary>
         [JsonPropertyName("past_types")]
-        public List<PokemonPastTypes> PastTypes { get; set; }
+        public List<PokemonPastTypes> PastTypes { get; set; } = null!;
 
         /// <summary>
         /// A set of sprites used to depict this Pokémon in the game.
         /// </summary>
-        public PokemonSprites Sprites { get; set; }
+        public PokemonSprites Sprites { get; set; } = null!;
 
         /// <summary>
         /// The species this Pokémon belongs to.
         /// </summary>
-        public NamedApiResource<PokemonSpecies> Species { get; set; }
+        public NamedApiResource<PokemonSpecies> Species { get; set; } = null!;
 
         /// <summary>
         /// A list of base stat values for this Pokémon.
         /// </summary>
-        public List<PokemonStat> Stats { get; set; }
+        public List<PokemonStat> Stats { get; set; } = null!;
 
         /// <summary>
         /// A list of details showing types this Pokémon has.
         /// </summary>
-        public List<PokemonType> Types { get; set; }
+        public List<PokemonType> Types { get; set; } = null!;
     }
 
     /// <summary>
@@ -602,7 +602,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The ability the Pokémon may have.
         /// </summary>
-        public NamedApiResource<Ability> Ability { get; set; }
+        public NamedApiResource<Ability> Ability { get; set; } = null!;
     }
 
     /// <summary>
@@ -618,7 +618,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The type the referenced Pokémon has.
         /// </summary>
-        public NamedApiResource<Type> Type { get; set; }
+        public NamedApiResource<Type> Type { get; set; } = null!;
     }
 
     /// <summary>
@@ -644,13 +644,13 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The item the referenced Pokémon holds.
         /// </summary>
-        public NamedApiResource<Item> Item { get; set; }
+        public NamedApiResource<Item> Item { get; set; } = null!;
 
         /// <summary>
         /// The details of the different versions in which the item is held.
         /// </summary>
         [JsonPropertyName("version_details")]
-        public List<PokemonHeldItemVersion> VersionDetails { get; set; }
+        public List<PokemonHeldItemVersion> VersionDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -661,7 +661,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The version in which the item is held.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
 
         /// <summary>
         /// How often the item is held.
@@ -677,13 +677,13 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The move the Pokémon can learn.
         /// </summary>
-        public NamedApiResource<Move> Move { get; set; }
+        public NamedApiResource<Move> Move { get; set; } = null!;
 
         /// <summary>
         /// The details of the version in which the Pokémon can learn the move.
         /// </summary>
         [JsonPropertyName("version_group_details")]
-        public List<PokemonMoveVersion> VersionGroupDetails { get; set; }
+        public List<PokemonMoveVersion> VersionGroupDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -695,13 +695,13 @@ namespace PokeApiNetAfterDark.Models
         /// The method by which the move is learned.
         /// </summary>
         [JsonPropertyName("move_learn_method")]
-        public NamedApiResource<MoveLearnMethod> MoveLearnMethod { get; set; }
+        public NamedApiResource<MoveLearnMethod> MoveLearnMethod { get; set; } = null!;
 
         /// <summary>
         /// The version group in which the move is learned.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
 
         /// <summary>
         /// The minimum level to learn the move.
@@ -718,7 +718,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The stat the Pokémon has.
         /// </summary>
-        public NamedApiResource<Stat> Stat { get; set; }
+        public NamedApiResource<Stat> Stat { get; set; } = null!;
 
         /// <summary>
         /// The effort points (EV) the Pokémon has in the stat.
@@ -741,59 +741,59 @@ namespace PokeApiNetAfterDark.Models
         /// The default depiction of this Pokémon from the front in battle.
         /// </summary>
         [JsonPropertyName("front_default")]
-        public string FrontDefault { get; set; }
+        public string FrontDefault { get; set; } = null!;
 
         /// <summary>
         /// The shiny depiction of this Pokémon from the front in battle.
         /// </summary>
         [JsonPropertyName("front_shiny")]
-        public string FrontShiny { get; set; }
+        public string FrontShiny { get; set; } = null!;
 
         /// <summary>
         /// The female depiction of this Pokémon from the front in battle.
         /// </summary>
         [JsonPropertyName("front_female")]
-        public string FrontFemale { get; set; }
+        public string FrontFemale { get; set; } = null!;
 
         /// <summary>
         /// The shiny female depiction of this Pokémon from the front in battle.
         /// </summary>
         [JsonPropertyName("front_shiny_female")]
-        public string FrontShinyFemale { get; set; }
+        public string FrontShinyFemale { get; set; } = null!;
 
         /// <summary>
         /// The default depiction of this Pokémon from the back in battle.
         /// </summary>
         [JsonPropertyName("back_default")]
-        public string BackDefault { get; set; }
+        public string BackDefault { get; set; } = null!;
 
         /// <summary>
         /// The shiny depiction of this Pokémon from the back in battle.
         /// </summary>
         [JsonPropertyName("back_shiny")]
-        public string BackShiny { get; set; }
+        public string BackShiny { get; set; } = null!;
 
         /// <summary>
         /// The female depiction of this Pokémon from the back in battle.
         /// </summary>
         [JsonPropertyName("back_female")]
-        public string BackFemale { get; set; }
+        public string BackFemale { get; set; } = null!;
 
         /// <summary>
         /// The shiny female depiction of this Pokémon from the back in battle.
         /// </summary>
         [JsonPropertyName("back_shiny_female")]
-        public string BackShinyFemale { get; set; }
+        public string BackShinyFemale { get; set; } = null!;
 
         /// <summary>
         /// Other sprites
         /// </summary>
-        public OtherSprites Other { get; set; }
+        public OtherSprites Other { get; set; } = null!;
 
         /// <summary>
         /// Pókemon sprites versioned by game generation
         /// </summary>
-        public VersionSprites Versions { get; set; }
+        public VersionSprites Versions { get; set; } = null!;
 
         /// <summary>
         /// Other Pokémon sprites
@@ -804,18 +804,18 @@ namespace PokeApiNetAfterDark.Models
             /// DreamWorld sprites
             /// </summary>
             [JsonPropertyName("dream_world")]
-            public DreamWorldSprites DreamWorld { get; set; }
+            public DreamWorldSprites DreamWorld { get; set; } = null!;
 
             /// <summary>
             /// Home sprites
             /// </summary>
-            public HomeSprites Home { get; set; }
+            public HomeSprites Home { get; set; } = null!;
 
             /// <summary>
             /// Official Artwork sprites
             /// </summary>
             [JsonPropertyName("official-artwork")]
-            public OfficialArtworkSprites OfficialArtwork { get; set; }
+            public OfficialArtworkSprites OfficialArtwork { get; set; } = null!;
 
             /// <summary>
             /// DreamWorld Pókemon sprites
@@ -826,13 +826,13 @@ namespace PokeApiNetAfterDark.Models
                 /// The default depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_default")]
-                public string FrontDefault { get; set; }
+                public string FrontDefault { get; set; } = null!;
 
                 /// <summary>
                 /// The female depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_female")]
-                public string FrontFemale { get; set; }
+                public string FrontFemale { get; set; } = null!;
             }
 
             /// <summary>
@@ -844,25 +844,25 @@ namespace PokeApiNetAfterDark.Models
                 /// The default depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_default")]
-                public string FrontDefault { get; set; }
+                public string FrontDefault { get; set; } = null!;
 
                 /// <summary>
                 /// The female depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_female")]
-                public string FrontFemale { get; set; }
+                public string FrontFemale { get; set; } = null!;
 
                 /// <summary>
                 /// The shiny depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_shiny")]
-                public string FrontShiny { get; set; }
+                public string FrontShiny { get; set; } = null!;
 
                 /// <summary>
                 /// The shiny female depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_shiny_female")]
-                public string FrontShinyFemale { get; set; }
+                public string FrontShinyFemale { get; set; } = null!;
             }
 
             /// <summary>
@@ -874,13 +874,13 @@ namespace PokeApiNetAfterDark.Models
                 /// The default depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_default")]
-                public string FrontDefault { get; set; }
+                public string FrontDefault { get; set; } = null!;
                 
                 /// <summary>
                 /// The shiny depiction of this Pokémon from the front in battle.
                 /// </summary>
                 [JsonPropertyName("front_shiny")]
-                public string FrontShiny { get; set; }
+                public string FrontShiny { get; set; } = null!;
             }
         }
 
@@ -893,49 +893,49 @@ namespace PokeApiNetAfterDark.Models
             /// Pókemon sprites for Generation I
             /// </summary>
             [JsonPropertyName("generation-i")]
-            public GenerationISprites GenerationI { get; set; }
+            public GenerationISprites GenerationI { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation II
             /// </summary>
             [JsonPropertyName("generation-ii")]
-            public GenerationIISprites GenerationII { get; set; }
+            public GenerationIISprites GenerationII { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation III
             /// </summary>
             [JsonPropertyName("generation-iii")]
-            public GenerationIIISprites GenerationIII { get; set; }
+            public GenerationIIISprites GenerationIII { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation IV
             /// </summary>
             [JsonPropertyName("generation-iv")]
-            public GenerationIVSprites GenerationIV { get; set; }
+            public GenerationIVSprites GenerationIV { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation V
             /// </summary>
             [JsonPropertyName("generation-v")]
-            public GenerationVSprites GenerationV { get; set; }
+            public GenerationVSprites GenerationV { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation VI
             /// </summary>
             [JsonPropertyName("generation-vi")]
-            public GenerationVISprites GenerationVI { get; set; }
+            public GenerationVISprites GenerationVI { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation VII
             /// </summary>
             [JsonPropertyName("generation-vii")]
-            public GenerationVIISprites GenerationVII { get; set; }
+            public GenerationVIISprites GenerationVII { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation VIII
             /// </summary>
             [JsonPropertyName("generation-viii")]
-            public GenerationVIIISprites GenerationVIII { get; set; }
+            public GenerationVIIISprites GenerationVIII { get; set; } = null!;
 
             /// <summary>
             /// Pókemon sprites for Generation I
@@ -946,12 +946,12 @@ namespace PokeApiNetAfterDark.Models
                 /// Pókemon Red-Blue sprites
                 /// </summary>
                 [JsonPropertyName("red-blue")]
-                public RedBlueSprites RedBlue { get; set; }
+                public RedBlueSprites RedBlue { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Yellow sprites
                 /// </summary>
-                public YellowSprites Yellow { get; set; }
+                public YellowSprites Yellow { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Red-Blue sprites
@@ -962,37 +962,37 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle on gray background.
                     /// </summary>
                     [JsonPropertyName("back_gray")]
-                    public string BackGray { get; set; }
+                    public string BackGray { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("back_transparent")]
-                    public string BackTransparent { get; set; }
+                    public string BackTransparent { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on gray background.
                     /// </summary>
                     [JsonPropertyName("front_gray")]
-                    public string FrontGray { get; set; }
+                    public string FrontGray { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_transparent")]
-                    public string FrontTransparent { get; set; }
+                    public string FrontTransparent { get; set; } = null!;
 
                 }
 
@@ -1005,37 +1005,37 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle on gray background.
                     /// </summary>
                     [JsonPropertyName("back_gray")]
-                    public string BackGray { get; set; }
+                    public string BackGray { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("back_transparent")]
-                    public string BackTransparent { get; set; }
+                    public string BackTransparent { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on gray background.
                     /// </summary>
                     [JsonPropertyName("front_gray")]
-                    public string FrontGray { get; set; }
+                    public string FrontGray { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_transparent")]
-                    public string FrontTransparent { get; set; }
+                    public string FrontTransparent { get; set; } = null!;
                 }
             }
 
@@ -1047,17 +1047,17 @@ namespace PokeApiNetAfterDark.Models
                 /// <summary>
                 /// Pókemon Crystal sprites
                 /// </summary>
-                public CrystalSprites Crystal { get; set; }
+                public CrystalSprites Crystal { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Gold sprites
                 /// </summary>
-                public GoldSprites Gold { get; set; }
+                public GoldSprites Gold { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Silver sprites
                 /// </summary>
-                public SilverSprites Silver { get; set; }
+                public SilverSprites Silver { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Crystal sprites
@@ -1068,49 +1068,49 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("back_shiny_transparent")]
-                    public string BackShinyTransparent { get; set; }
+                    public string BackShinyTransparent { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("back_transparent")]
-                    public string BackTransparent { get; set; }
+                    public string BackTransparent { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_shiny_transparent")]
-                    public string FrontShinyTransparent { get; set; }
+                    public string FrontShinyTransparent { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_transparent")]
-                    public string FrontTransparent { get; set; }
+                    public string FrontTransparent { get; set; } = null!;
 
                 }
 
@@ -1123,31 +1123,31 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_transparent")]
-                    public string FrontTransparent { get; set; }
+                    public string FrontTransparent { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1159,31 +1159,31 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle on transparent background.
                     /// </summary>
                     [JsonPropertyName("front_transparent")]
-                    public string FrontTransparent { get; set; }
+                    public string FrontTransparent { get; set; } = null!;
                 }
             }
 
@@ -1196,19 +1196,19 @@ namespace PokeApiNetAfterDark.Models
                 /// Pókemon Emerald sprites
                 /// </summary>
                 [JsonPropertyName("emerald")]
-                public EmeraldSprites Emerald { get; set; }
+                public EmeraldSprites Emerald { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Firered/Leafgreen sprites
                 /// </summary>
                 [JsonPropertyName("firered-leafgreen")]
-                public FireredLeafgreenSprites FireredLeafgreen { get; set; }
+                public FireredLeafgreenSprites FireredLeafgreen { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Ruby/Sapphire sprites
                 /// </summary>
                 [JsonPropertyName("ruby-sapphire")]
-                public RubySapphireSprites RubySapphire { get; set; }
+                public RubySapphireSprites RubySapphire { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Emerald sprites
@@ -1219,13 +1219,13 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1237,25 +1237,25 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1267,25 +1267,25 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
                 }
             }
 
@@ -1298,18 +1298,18 @@ namespace PokeApiNetAfterDark.Models
                 /// Pókemon Diamond/Pearl sprites
                 /// </summary>
                 [JsonPropertyName("diamond-pearl")]
-                public DiamondPearlSprites DiamondPearl { get; set; }
+                public DiamondPearlSprites DiamondPearl { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Heartgold/Soulsilver sprites
                 /// </summary>
                 [JsonPropertyName("heartgold-soulsilver")]
-                public HeartGoldSoulSilverSprites HeartGoldSoulSilver { get; set; }
+                public HeartGoldSoulSilverSprites HeartGoldSoulSilver { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Platinum sprites
                 /// </summary>
-                public PlatinumSprites Platinum { get; set; }
+                public PlatinumSprites Platinum { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Diamond/Pearl sprites
@@ -1320,49 +1320,49 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female in battle.
                     /// </summary>
                     [JsonPropertyName("back_female")]
-                    public string BackFemale { get; set; }
+                    public string BackFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny_female")]
-                    public string BackShinyFemale { get; set; }
+                    public string BackShinyFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1374,49 +1374,49 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female in battle.
                     /// </summary>
                     [JsonPropertyName("back_female")]
-                    public string BackFemale { get; set; }
+                    public string BackFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny_female")]
-                    public string BackShinyFemale { get; set; }
+                    public string BackShinyFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1428,49 +1428,49 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female in battle.
                     /// </summary>
                     [JsonPropertyName("back_female")]
-                    public string BackFemale { get; set; }
+                    public string BackFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny_female")]
-                    public string BackShinyFemale { get; set; }
+                    public string BackShinyFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
             }
 
@@ -1483,7 +1483,7 @@ namespace PokeApiNetAfterDark.Models
                 /// Pókemon Black/White sprites
                 /// </summary>
                 [JsonPropertyName("black-white")]
-                public BlackWhiteSprites BlackWhite { get; set; }
+                public BlackWhiteSprites BlackWhite { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Black/White sprites
@@ -1493,55 +1493,55 @@ namespace PokeApiNetAfterDark.Models
                     /// <summary>
                     /// The animated depiction of this Pokémon from the back in battle.
                     /// </summary>
-                    public AnimatedSprites Animated { get; set; }
+                    public AnimatedSprites Animated { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back in battle.
                     /// </summary>
                     [JsonPropertyName("back_default")]
-                    public string BackDefault { get; set; }
+                    public string BackDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female in battle.
                     /// </summary>
                     [JsonPropertyName("back_female")]
-                    public string BackFemale { get; set; }
+                    public string BackFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny")]
-                    public string BackShiny { get; set; }
+                    public string BackShiny { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the back female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("back_shiny_female")]
-                    public string BackShinyFemale { get; set; }
+                    public string BackShinyFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The animated depiction of this Pokémon from the back in battle.
@@ -1552,49 +1552,49 @@ namespace PokeApiNetAfterDark.Models
                         /// The default depiction of this Pokémon from the back in battle.
                         /// </summary>
                         [JsonPropertyName("back_default")]
-                        public string BackDefault { get; set; }
+                        public string BackDefault { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the back female in battle.
                         /// </summary>
                         [JsonPropertyName("back_female")]
-                        public string BackFemale { get; set; }
+                        public string BackFemale { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the back shiny in battle.
                         /// </summary>
                         [JsonPropertyName("back_shiny")]
-                        public string BackShiny { get; set; }
+                        public string BackShiny { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the back female shiny in battle.
                         /// </summary>
                         [JsonPropertyName("back_shiny_female")]
-                        public string BackShinyFemale { get; set; }
+                        public string BackShinyFemale { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the front in battle.
                         /// </summary>
                         [JsonPropertyName("front_default")]
-                        public string FrontDefault { get; set; }
+                        public string FrontDefault { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the front female in battle.
                         /// </summary>
                         [JsonPropertyName("front_female")]
-                        public string FrontFemale { get; set; }
+                        public string FrontFemale { get; set; } = null!;
 
                         /// <summary>
                         /// The default depiction of this Pokémon from the front shiny in battle.
                         /// </summary>
                         [JsonPropertyName("front_shiny")]
-                        public string FrontShiny { get; set; }
+                        public string FrontShiny { get; set; } = null!;
 
-                        // <summary>
+                        /// <summary>
                         /// The default depiction of this Pokémon from the front female shiny in battle.
                         /// </summary>
                         [JsonPropertyName("front_shiny_female")]
-                        public string FrontShinyFemale { get; set; }
+                        public string FrontShinyFemale { get; set; } = null!;
                     }
                 }
             }
@@ -1608,13 +1608,13 @@ namespace PokeApiNetAfterDark.Models
                 /// Pókemon OmegaRuby/AlphaSapphire sprites
                 /// </summary>
                 [JsonPropertyName("omegaruby-alphasapphire")]
-                public OmegaRubyAlphaSapphireSprites OmegaRubyAlphaSapphire { get; set; }
+                public OmegaRubyAlphaSapphireSprites OmegaRubyAlphaSapphire { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon X/Y sprites
                 /// </summary>
                 [JsonPropertyName("x-y")]
-                public XYSprites XY { get; set; }
+                public XYSprites XY { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon OmegaRuby/AlphaSapphire sprites
@@ -1625,25 +1625,25 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1655,25 +1655,25 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
 
             }
@@ -1686,13 +1686,13 @@ namespace PokeApiNetAfterDark.Models
                 /// <summary>
                 /// Pókemon Icons sprites
                 /// </summary>
-                public IconsSprites Icons { get; set; }
+                public IconsSprites Icons { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon UltraSun/UltraMoon sprites
                 /// </summary>
                 [JsonPropertyName("ultra-sun-ultra-moon")]
-                public UltraSunUltraMoonSprites UltraSunUltraMoon { get; set; }
+                public UltraSunUltraMoonSprites UltraSunUltraMoon { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Icons sprites
@@ -1703,13 +1703,13 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
                 }
 
                 /// <summary>
@@ -1721,25 +1721,25 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny")]
-                    public string FrontShiny { get; set; }
+                    public string FrontShiny { get; set; } = null!;
 
-                    // <summary>
+                    /// <summary>
                     /// The default depiction of this Pokémon from the front female shiny in battle.
                     /// </summary>
                     [JsonPropertyName("front_shiny_female")]
-                    public string FrontShinyFemale { get; set; }
+                    public string FrontShinyFemale { get; set; } = null!;
                 }
             }
 
@@ -1751,7 +1751,7 @@ namespace PokeApiNetAfterDark.Models
                 /// <summary>
                 /// Pókemon Icons sprites
                 /// </summary>
-                public IconsSprites Icons { get; set; }
+                public IconsSprites Icons { get; set; } = null!;
 
                 /// <summary>
                 /// Pókemon Icons sprites
@@ -1762,13 +1762,13 @@ namespace PokeApiNetAfterDark.Models
                     /// The default depiction of this Pokémon from the front in battle.
                     /// </summary>
                     [JsonPropertyName("front_default")]
-                    public string FrontDefault { get; set; }
+                    public string FrontDefault { get; set; } = null!;
 
                     /// <summary>
                     /// The default depiction of this Pokémon from the front female in battle.
                     /// </summary>
                     [JsonPropertyName("front_female")]
-                    public string FrontFemale { get; set; }
+                    public string FrontFemale { get; set; } = null!;
                 }
             }
         }
@@ -1783,14 +1783,14 @@ namespace PokeApiNetAfterDark.Models
         /// The location area the referenced Pokémon can be encountered in.
         /// </summary>
         [JsonPropertyName("location_area")]
-        public NamedApiResource<LocationArea> LocationArea { get; set; }
+        public NamedApiResource<LocationArea> LocationArea { get; set; } = null!;
 
         /// <summary>
         /// A list of versions and encounters with the referenced Pokémon
         /// that might happen.
         /// </summary>
         [JsonPropertyName("version_details")]
-        public List<VersionEncounterDetail> VersionDetails { get; set; }
+        public List<VersionEncounterDetail> VersionDetails { get; set; } = null!;
     }
 
     /// <summary>
@@ -1811,18 +1811,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of the Pokémon species that have this color.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -1843,7 +1843,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The order in which forms should be sorted within all forms.
@@ -1880,41 +1880,41 @@ namespace PokeApiNetAfterDark.Models
         /// The name of this form.
         /// </summary>
         [JsonPropertyName("form_name")]
-        public string FormName { get; set; }
+        public string FormName { get; set; } = null!;
 
         /// <summary>
         /// The Pokémon that can take on this form.
         /// </summary>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
 
         /// <summary>
         /// A set of sprites used to depict this Pokémon form in the game.
         /// </summary>
-        public PokemonFormSprites Sprites { get; set; }
+        public PokemonFormSprites Sprites { get; set; } = null!;
 
         /// <summary>
         /// List of types belonging to this Pokémon form.
         /// </summary>
-        public List<PokemonType> Types { get; set; }
+        public List<PokemonType> Types { get; set; } = null!;
 
         /// <summary>
         /// The version group this Pokémon form was introduced in.
         /// </summary>
         [JsonPropertyName("version_group")]
-        public NamedApiResource<VersionGroup> VersionGroup { get; set; }
+        public NamedApiResource<VersionGroup> VersionGroup { get; set; } = null!;
 
         /// <summary>
         /// The form specific full name of this Pokémon form, or empty if
         /// the form does not have a specific name.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// The form specific form name of this Pokémon form, or empty if the
         /// form does not have a specific name.
         /// </summary>
         [JsonPropertyName("form_names")]
-        public List<Names> FormNames { get; set; }
+        public List<Names> FormNames { get; set; } = null!;
     }
 
     /// <summary>
@@ -1926,25 +1926,25 @@ namespace PokeApiNetAfterDark.Models
         /// The default depiction of this Pokémon form from the front in battle.
         /// </summary>
         [JsonPropertyName("front_default")]
-        public string FrontDefault { get; set; }
+        public string FrontDefault { get; set; } = null!;
 
         /// <summary>
         /// The shiny depiction of this Pokémon form from the front in battle.
         /// </summary>
         [JsonPropertyName("front_shiny")]
-        public string FrontShiny { get; set; }
+        public string FrontShiny { get; set; } = null!;
 
         /// <summary>
         /// The default depiction of this Pokémon form from the back in battle.
         /// </summary>
         [JsonPropertyName("back_default")]
-        public string BackDefault { get; set; }
+        public string BackDefault { get; set; } = null!;
 
         /// <summary>
         /// The shiny depiction of this Pokémon form from the back in battle.
         /// </summary>
         [JsonPropertyName("back_shiny")]
-        public string BackShiny { get; set; }
+        public string BackShiny { get; set; } = null!;
     }
 
     /// <summary>
@@ -1963,18 +1963,18 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of the Pokémon species that can be found in this habitat.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -1992,25 +1992,25 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The "scientific" name of this Pokémon shape listed in
         /// different languages.
         /// </summary>
         [JsonPropertyName("awesome_names")]
-        public List<AwesomeNames> AwesomeNames { get; set; }
+        public List<AwesomeNames> AwesomeNames { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of the Pokémon species that have this shape.
         /// </summary>
         [JsonPropertyName("pokemon_species")]
-        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; }
+        public List<NamedApiResource<PokemonSpecies>> PokemonSpecies { get; set; } = null!;
     }
 
     /// <summary>
@@ -2023,12 +2023,12 @@ namespace PokeApiNetAfterDark.Models
         /// specific language.
         /// </summary>
         [JsonPropertyName("awesome_name")]
-        public string AwesomeName { get; set; }
+        public string AwesomeName { get; set; } = null!;
 
         /// <summary>
         /// The language this "scientific" name is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -2050,7 +2050,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// The order in which species should be sorted. Based on National Dex
@@ -2122,87 +2122,87 @@ namespace PokeApiNetAfterDark.Models
         /// The rate at which this Pokémon species gains levels.
         /// </summary>
         [JsonPropertyName("growth_rate")]
-        public NamedApiResource<GrowthRate> GrowthRate { get; set; }
+        public NamedApiResource<GrowthRate> GrowthRate { get; set; } = null!;
 
         /// <summary>
         /// A list of Pokedexes and the indexes reserved within them for this
         /// Pokémon species.
         /// </summary>
         [JsonPropertyName("pokedex_numbers")]
-        public List<PokemonSpeciesDexEntry> PokedexNumbers { get; set; }
+        public List<PokemonSpeciesDexEntry> PokedexNumbers { get; set; } = null!;
 
         /// <summary>
         /// A list of egg groups this Pokémon species is a member of.
         /// </summary>
         [JsonPropertyName("egg_groups")]
-        public List<NamedApiResource<EggGroup>> EggGroups { get; set; }
+        public List<NamedApiResource<EggGroup>> EggGroups { get; set; } = null!;
 
         /// <summary>
         /// The color of this Pokémon for Pokédex search.
         /// </summary>
-        public NamedApiResource<PokemonColor> Color { get; set; }
+        public NamedApiResource<PokemonColor> Color { get; set; } = null!;
 
         /// <summary>
         /// The shape of this Pokémon for Pokédex search.
         /// </summary>
-        public NamedApiResource<PokemonShape> Shape { get; set; }
+        public NamedApiResource<PokemonShape> Shape { get; set; } = null!;
 
         /// <summary>
         /// The Pokémon species that evolves into this Pokemon_species.
         /// </summary>
         [JsonPropertyName("evolves_from_species")]
-        public NamedApiResource<PokemonSpecies> EvolvesFromSpecies { get; set; }
+        public NamedApiResource<PokemonSpecies> EvolvesFromSpecies { get; set; } = null!;
 
         /// <summary>
         /// The evolution chain this Pokémon species is a member of.
         /// </summary>
         [JsonPropertyName("evolution_chain")]
-        public ApiResource<EvolutionChain> EvolutionChain { get; set; }
+        public ApiResource<EvolutionChain> EvolutionChain { get; set; } = null!;
 
         /// <summary>
         /// The habitat this Pokémon species can be encountered in.
         /// </summary>
-        public NamedApiResource<PokemonHabitat> Habitat { get; set; }
+        public NamedApiResource<PokemonHabitat> Habitat { get; set; } = null!;
 
         /// <summary>
         /// The generation this Pokémon species was introduced in.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of encounters that can be had with this Pokémon species in
         /// pal park.
         /// </summary>
         [JsonPropertyName("pal_park_encounters")]
-        public List<PalParkEncounterArea> PalParkEncounters { get; set; }
+        public List<PalParkEncounterArea> PalParkEncounters { get; set; } = null!;
 
         /// <summary>
         /// A list of flavor text entries for this Pokémon species.
         /// </summary>
         [JsonPropertyName("flavor_text_entries")]
-        public List<PokemonSpeciesFlavorTexts> FlavorTextEntries { get; set; }
+        public List<PokemonSpeciesFlavorTexts> FlavorTextEntries { get; set; } = null!;
 
         /// <summary>
         /// Descriptions of different forms Pokémon take on within the Pokémon
         /// species.
         /// </summary>
         [JsonPropertyName("form_descriptions")]
-        public List<Descriptions> FormDescriptions { get; set; }
+        public List<Descriptions> FormDescriptions { get; set; } = null!;
 
         /// <summary>
         /// The genus of this Pokémon species listed in multiple languages.
         /// </summary>
-        public List<Genuses> Genera { get; set; }
+        public List<Genuses> Genera { get; set; } = null!;
 
         /// <summary>
         /// A list of the Pokémon that exist within this Pokémon species.
         /// </summary>
-        public List<PokemonSpeciesVariety> Varieties { get; set; }
+        public List<PokemonSpeciesVariety> Varieties { get; set; } = null!;
     }
 
     /// <summary>
@@ -2214,17 +2214,17 @@ namespace PokeApiNetAfterDark.Models
         /// The localized flavor text for an api resource in a specific language
         /// </summary>
         [JsonPropertyName("flavor_text")]
-        public string FlavorText { get; set; }
+        public string FlavorText { get; set; } = null!;
 
         /// <summary>
         /// The game version this flavor text is extracted from.
         /// </summary>
-        public NamedApiResource<Version> Version { get; set; }
+        public NamedApiResource<Version> Version { get; set; } = null!;
 
         /// <summary>
         /// The language this flavor text is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -2235,12 +2235,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The localized genus for the referenced Pokémon species
         /// </summary>
-        public string Genus { get; set; }
+        public string Genus { get; set; } = null!;
 
         /// <summary>
         /// The language this genus is in.
         /// </summary>
-        public NamedApiResource<Language> Language { get; set; }
+        public NamedApiResource<Language> Language { get; set; } = null!;
     }
 
     /// <summary>
@@ -2257,7 +2257,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokédex the referenced Pokémon species can be found in.
         /// </summary>
-        public NamedApiResource<Pokedex> Pokedex { get; set; }
+        public NamedApiResource<Pokedex> Pokedex { get; set; } = null!;
     }
 
     /// <summary>
@@ -2281,7 +2281,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The pal park area where this encounter happens.
         /// </summary>
-        public NamedApiResource<PalParkArea> Area { get; set; }
+        public NamedApiResource<PalParkArea> Area { get; set; } = null!;
     }
 
     /// <summary>
@@ -2298,7 +2298,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokémon variety.
         /// </summary>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
     }
 
     /// <summary>
@@ -2318,7 +2318,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// ID the games use for this stat.
@@ -2336,30 +2336,30 @@ namespace PokeApiNetAfterDark.Models
         /// A detail of moves which affect this stat positively or negatively.
         /// </summary>
         [JsonPropertyName("affecting_moves")]
-        public MoveStatAffectSets AffectingMoves { get; set; }
+        public MoveStatAffectSets AffectingMoves { get; set; } = null!;
 
         /// <summary>
         /// A detail of natures which affect this stat positively or negatively.
         /// </summary>
         [JsonPropertyName("affecting_natures")]
-        public NatureStatAffectSets AffectingNatures { get; set; }
+        public NatureStatAffectSets AffectingNatures { get; set; } = null!;
 
         /// <summary>
         /// A list of characteristics that are set on a Pokémon when its highest
         /// base stat is this stat.
         /// </summary>
-        public List<ApiResource<Characteristic>> Characteristics { get; set; }
+        public List<ApiResource<Characteristic>> Characteristics { get; set; } = null!;
 
         /// <summary>
         /// The public class of damage this stat is directly related to.
         /// </summary>
         [JsonPropertyName("move_damage_class")]
-        public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; }
+        public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
     }
 
     /// <summary>
@@ -2370,12 +2370,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// A list of moves and how they change the referenced stat.
         /// </summary>
-        public List<MoveStatAffect> Increase { get; set; }
+        public List<MoveStatAffect> Increase { get; set; } = null!;
 
         /// <summary>
         /// A list of moves and how they change the referenced stat.
         /// </summary>
-        public List<MoveStatAffect> Decrease { get; set; }
+        public List<MoveStatAffect> Decrease { get; set; } = null!;
     }
 
     /// <summary>
@@ -2391,7 +2391,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The move causing the change.
         /// </summary>
-        public NamedApiResource<Move> Move { get; set; }
+        public NamedApiResource<Move> Move { get; set; } = null!;
     }
 
     /// <summary>
@@ -2402,12 +2402,12 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// A list of natures and how they change the referenced stat.
         /// </summary>
-        public List<NamedApiResource<Nature>> Increase { get; set; }
+        public List<NamedApiResource<Nature>> Increase { get; set; } = null!;
 
         /// <summary>
         /// A list of natures and how they change the referenced stat.
         /// </summary>
-        public List<NamedApiResource<Nature>> Decrease { get; set; }
+        public List<NamedApiResource<Nature>> Decrease { get; set; } = null!;
     }
 
     /// <summary>
@@ -2428,45 +2428,45 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The name for this resource.
         /// </summary>
-        public override string Name { get; set; }
+        public override string Name { get; set; } = null!;
 
         /// <summary>
         /// A detail of how effective this type is toward others and vice versa.
         /// </summary>
         [JsonPropertyName("damage_relations")]
-        public TypeRelations DamageRelations { get; set; }
+        public TypeRelations DamageRelations { get; set; } = null!;
 
         /// <summary>
         /// A list of game indices relevent to this item by generation.
         /// </summary>
         [JsonPropertyName("game_indices")]
-        public List<GenerationGameIndex> GameIndices { get; set; }
+        public List<GenerationGameIndex> GameIndices { get; set; } = null!;
 
         /// <summary>
         /// The generation this type was introduced in.
         /// </summary>
-        public NamedApiResource<Generation> Generation { get; set; }
+        public NamedApiResource<Generation> Generation { get; set; } = null!;
 
         /// <summary>
         /// The public class of damage inflicted by this type.
         /// </summary>
         [JsonPropertyName("move_damage_class")]
-        public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; }
+        public NamedApiResource<MoveDamageClass> MoveDamageClass { get; set; } = null!;
 
         /// <summary>
         /// The name of this resource listed in different languages.
         /// </summary>
-        public List<Names> Names { get; set; }
+        public List<Names> Names { get; set; } = null!;
 
         /// <summary>
         /// A list of details of Pokémon that have this type.
         /// </summary>
-        public List<TypePokemon> Pokemon { get; set; }
+        public List<TypePokemon> Pokemon { get; set; } = null!;
 
         /// <summary>
         /// A list of moves that have this type.
         /// </summary>
-        public List<NamedApiResource<Move>> Moves { get; set; }
+        public List<NamedApiResource<Move>> Moves { get; set; } = null!;
     }
 
     /// <summary>
@@ -2482,7 +2482,7 @@ namespace PokeApiNetAfterDark.Models
         /// <summary>
         /// The Pokémon that has the referenced type.
         /// </summary>
-        public NamedApiResource<Pokemon> Pokemon { get; set; }
+        public NamedApiResource<Pokemon> Pokemon { get; set; } = null!;
     }
 
     /// <summary>
@@ -2494,36 +2494,36 @@ namespace PokeApiNetAfterDark.Models
         /// A list of types this type has no effect on.
         /// </summary>
         [JsonPropertyName("no_damage_to")]
-        public List<NamedApiResource<Type>> NoDamageTo { get; set; }
+        public List<NamedApiResource<Type>> NoDamageTo { get; set; } = null!;
 
         /// <summary>
         /// A list of types this type is not very effect against.
         /// </summary>
         [JsonPropertyName("half_damage_to")]
-        public List<NamedApiResource<Type>> HalfDamageTo { get; set; }
+        public List<NamedApiResource<Type>> HalfDamageTo { get; set; } = null!;
 
         /// <summary>
         /// A list of types this type is very effect against.
         /// </summary>
         [JsonPropertyName("double_damage_to")]
-        public List<NamedApiResource<Type>> DoubleDamageTo { get; set; }
+        public List<NamedApiResource<Type>> DoubleDamageTo { get; set; } = null!;
 
         /// <summary>
         /// A list of types that have no effect on this type.
         /// </summary>
         [JsonPropertyName("no_damage_from")]
-        public List<NamedApiResource<Type>> NoDamageFrom { get; set; }
+        public List<NamedApiResource<Type>> NoDamageFrom { get; set; } = null!;
 
         /// <summary>
         /// A list of types that are not very effective against this type.
         /// </summary>
         [JsonPropertyName("half_damage_from")]
-        public List<NamedApiResource<Type>> HalfDamageFrom { get; set; }
+        public List<NamedApiResource<Type>> HalfDamageFrom { get; set; } = null!;
 
         /// <summary>
         /// A list of types that are very effective against this type.
         /// </summary>
         [JsonPropertyName("double_damage_from")]
-        public List<NamedApiResource<Type>> DoubleDamageFrom { get; set; }
+        public List<NamedApiResource<Type>> DoubleDamageFrom { get; set; } = null!;
     }
 }

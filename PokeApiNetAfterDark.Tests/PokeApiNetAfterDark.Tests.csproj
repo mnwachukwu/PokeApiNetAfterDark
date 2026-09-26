@@ -5,10 +5,6 @@
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>PokeApiNetAfterDark.Tests</RootNamespace>
-    <!-- The library grants InternalsVisibleTo $(ProjectName).Tests, which names the ASSEMBLY.
-         Leave this at the .csproj's own name and every test of an internal fails to compile. -->
-    <AssemblyName>PokeApiNetAfterDark.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PokeApiNet\PokeApiNetAfterDark.csproj" />
+    <ProjectReference Include="..\PokeApiNetAfterDark\PokeApiNetAfterDark.csproj" />
   </ItemGroup>
 
 </Project>

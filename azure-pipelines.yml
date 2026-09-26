@@ -39,7 +39,7 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    packagesToPack: '**/PokeApiNet.csproj'
+    packagesToPack: '**/PokeApiNetAfterDark.csproj'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'GitVersion.SemVer'
     configuration: $(buildConfiguration)
